@@ -1,0 +1,17 @@
+
+//reset  css
+@import "./dependencies/normalize";
+@import "./dependencies/reset";
+
+//configurations
+@import "./config/colors";
+
+//components
+@import "./components/Main";
+@import "./components/Header";
+@import "./components/Activity";
+
+
+body {
+  background-image: url('/img-header.jpg')
+}

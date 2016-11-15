@@ -1,0 +1,24 @@
+.Main {
+    background-color: $color-main;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+    &-bglogo {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        h1 {
+            text-align: middle;
+            font-size: 10rem;
+            color: black;
+            margin: 0;
+            letter-spacing: 0.12em;
+        }
+    }
+}
