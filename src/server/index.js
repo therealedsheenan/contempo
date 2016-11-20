@@ -7,7 +7,6 @@ import { match, RouterContext } from 'react-router'
 import { readFileSync } from 'fs'
 import { renderToString } from 'react-dom/server'
 import { sync as globSync } from 'glob'
-import serialize from 'serialize-javascript'
 import * as path from 'path'
 
 const template = readFileSync('./index.html')
