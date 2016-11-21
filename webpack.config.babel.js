@@ -1,21 +1,20 @@
-import { resolve } from 'path'
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import ProgressBarPlugin from 'progress-bar-webpack-plugin'
-import { getIfUtils, removeEmpty } from 'webpack-config-utils'
-import validate from 'webpack-validator'
-import OfflinePlugin from 'offline-plugin'
-import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
+import { resolve } from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import { getIfUtils, removeEmpty } from 'webpack-config-utils';
+import OfflinePlugin from 'offline-plugin';
+import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
 
 const PATHS = {
     app: resolve('src'),
     output: resolve('public'),
     styles: resolve('/src/client/styles/main.js'),
-}
+};
 
 module.exports = env => {
-  const {ifProd, ifNotProd} = getIfUtils(env)
+  const {ifProd, ifNotProd} = getIfUtils(env);
   const config = {
     resolve: {
       modules: [
@@ -92,10 +91,10 @@ module.exports = env => {
         }
       }),
     ])
-  }
+  };
   if ( env.debug ) {
-    console.log(config)
+    console.log(config);
     debugger // eslint-disable-line
   }
-  return config
-}
+  return config;
+};
