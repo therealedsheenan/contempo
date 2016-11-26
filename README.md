@@ -1,3 +1,5 @@
+![logo ECMA6imize](https://github.com/therealedsheenan/ECMA6imize/blob/master/contempo.jpg)
+
 # Contempo
 Starter development environment for React.
 This repository is a starter development environment for creating apps(specifically for React) using webpack.
