@@ -12,9 +12,13 @@ Here are the following commands to install the environment.
 - To install yarn run `yarn install`
 
 Checkout the package.json for various build commands.
+
 #####
+Adds prebuild rimraf clean-up on the public directory.
+
 To run a basic development environment:
 - `npm run dev`
+- `npm run server`
 
 ######### There will be new commands in the following pushes #########
 
@@ -25,8 +29,9 @@ that cleans up the public directory. This public directory servers as the output
 - After running the build, npm scripts also copies assets to public directory.
 
 ### References
-- React-starter
-- Frontend masters
+- [React-starter](https://github.com/kriasoft/react-starter-kit)
+- [Frontend masters](https://frontendmasters.com/)
+- [React-scripts](https://github.com/facebookincubator/create-react-app)
 
 ###Disclaimer
 This project is still in development.
