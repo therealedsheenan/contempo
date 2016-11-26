@@ -6,13 +6,15 @@ import { routerReducer, syncHistoryWithStore } from 'react-router-redux'
 // import * as reducers from '../redux/modules'
 import greeting from '../redux/modules'
 
+let node_env = 'development'
+
 const store = createStore(
     combineReducers({
         greeting,
         routing: routerReducer}),
     compose(
         applyMiddleware(thunk),
-        process.env.NODE_ENV !== "production" ? window.devToolsExtension() : (f) => f
+        node_env !== "production" ? window.devToolsExtension() : (f) => f
     )
 )
 
