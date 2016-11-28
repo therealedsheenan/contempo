@@ -26,18 +26,16 @@ module.exports = {
       ]
     },
     context: PATHS.app,
-    entry: './client/browser.js',
+    entry: [
+      require.resolve('react-dev-utils/webpackHotDevClient'),
+      './client/browser.js'
+    ],
     output: {
         path: PATHS.output,
         filename: 'bundle.[name].[hash].js',
         pathinfo: true
     },
     devtool: 'source-map',
-    devServer: {
-        contentBase: PATHS.output,
-        hot: true,
-        inline: true,
-    },
     module: {
       loaders: [
         {

@@ -14,7 +14,7 @@ export default function ActivityComponent ( props ) {
 
             <div className="Activity-content">
                 <header className="Acitivity-info">
-                    <h2 className="Activity-info__owner">Lorem Ipsum</h2>
+                    <h2 className="Activity-info__owner">Lorem Ipsum!!!</h2>
                     <p className="Activity-info__title">Miso Soup & Gyoza</p>
                     <p className="Activity-info__date">17:00</p>
                 </header>

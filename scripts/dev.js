@@ -27,16 +27,15 @@ let handleCompile
 // }
 
 let setupCompiler = (host, port, protocol) => {
-  // compiler = webpack(config, handleCompile)
-  compiler = webpack(config)
+  compiler = webpack(config, handleCompile)
 
   compiler.plugin('invalid', () => {
-    // clearConsole();
+    clearConsole();
     console.log('Compiling...');
   })
 
   compiler.plugin('done', (stats) => {
-    // clearConsole();
+    clearConsole();
 
     // We have switched off the default Webpack output in WebpackDevServer
     // options so we are going to "massage" the warnings and errors and present
@@ -84,7 +83,7 @@ let setupCompiler = (host, port, protocol) => {
 
 let onProxyError = proxy => {
   return (err, req, res) => {
-    var host = req.headers && req.headers.host;
+    let host = req.headers && req.headers.host;
     console.log(
       chalk.red('Proxy error:') + ' Could not proxy request ' + chalk.cyan(req.url) +
       ' from ' + chalk.cyan(host) + ' to ' + chalk.cyan(proxy) + '.'
@@ -158,7 +157,7 @@ let runDevServer = (host, port, protocol) => {
       return console.log(err);
     }
 
-    // clearConsole();
+    clearConsole();
     console.log(chalk.cyan('Starting the development server...'));
     console.log();
     openBrowser(protocol + '://' + host + ':' + port + '/');
