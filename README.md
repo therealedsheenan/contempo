@@ -1,4 +1,4 @@
-![logo contempo](https://github.com/therealedsheenan/contempo/blob/master/contempo.jpg)
+![logo contempo](https://github.com/therealedsheenan/contempo/blob/master/contempo.png)
 
 # Contempo
 Starter development environment for React.
