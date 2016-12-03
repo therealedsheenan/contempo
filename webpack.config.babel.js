@@ -32,8 +32,8 @@ module.exports = env => {
     devtool: ifProd('source-map', 'eval'),
     devServer: {
         contentBase: PATHS.output,
-        hot: true,
         inline: true,
+        port: 8000
     },
     module: {
       loaders: [

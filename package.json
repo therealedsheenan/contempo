@@ -94,7 +94,7 @@
     "prebuild:dev": "concurrently \"npm run prerun\"",
     "build:dev": "webpack --env.dev",
     "postbuild:dev": "concurrently \"npm run postrun\"",
-    "dev": "webpack-dev-server --env.dev --hot",
+    "dev": "webpack-dev-server --env.dev",
     "watch": "webpack --watch --progress --colors --watch",
     "serve": "NODE_ENV=production babel-node src/server/index.js",
     "server": "concurrently \"npm run build\" \"npm run serve\"",

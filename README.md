@@ -27,6 +27,7 @@ To run a basic development environment:
 that cleans up the public directory. This public directory servers as the output of all the builds.
 
 - After running the build, npm scripts also copies assets to public directory.
+- This adapts most of the functionalities from the [React-scripts](https://github.com/facebookincubator/create-react-app)
 
 ### References
 - [React-starter](https://github.com/kriasoft/react-starter-kit)
