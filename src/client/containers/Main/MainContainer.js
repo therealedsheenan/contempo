@@ -7,7 +7,6 @@ export default class MainContainer extends Component {
     }
 
     render () {
-        console.log(this.props);
         return (
             <div className="Main" role="main">
                 { this.props.children }
