@@ -4,12 +4,12 @@ import express from 'express'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { match, RouterContext } from 'react-router'
-import { readFileSync } from 'fs'
+import fs from 'fs'
 import { renderToString } from 'react-dom/server'
 import { sync as globSync } from 'glob'
 import * as path from 'path'
 
-const template = readFileSync('./index.html')
+const template = fs.readFileSync('./index.html')
 const port = 5000
 
 const app = express()
