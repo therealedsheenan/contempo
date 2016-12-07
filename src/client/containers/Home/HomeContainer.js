@@ -1,19 +1,16 @@
-import React, { PropTypes, Component } from 'react'
-import ActivityComponent from 'components/Activity/ActivityComponent'
-import HeaderComponent from 'components/Header/HeaderComponent'
+import React from 'react'
+import { Link } from 'react-router'
+import { GreetingComponent } from 'components'
 
-export default class HomeContainer extends Component {
-
-  constructor (props) {
-    super(props)
-  }
-
+const HomeContainer = React.createClass({
   render () {
     return (
       <div>
-        <HeaderComponent />
-        <ActivityComponent />
+        <GreetingComponent />
+        <Link to='/styleguide'>{'Styleguide'}</Link>
       </div>
     )
   }
-}
+})
+
+export default HomeContainer

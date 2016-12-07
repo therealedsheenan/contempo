@@ -2,15 +2,13 @@ import React from 'react'
 import { IndexRoute, Route } from 'react-router'
 
 // react containers
-// import { MainContainer, HomeContainer  } from '../containers'
-import MainContainer from '../containers/Main/MainContainer'
-import HomeContainer from '../containers/Home/HomeContainer'
+import { MainContainer, HomeContainer, StyleguideContainer } from 'containers'
 
 const getRoutes = () => (
   <Route path='/' component={MainContainer} >
-    <Route path='/' component={HomeContainer} />
+    <Route path='styleguide' component={StyleguideContainer} />
     <IndexRoute component={HomeContainer} />
   </Route>
 )
 
-module.exports = getRoutes
+export default getRoutes

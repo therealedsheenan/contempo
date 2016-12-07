@@ -1,5 +1,5 @@
 import React from 'react'
-import { browserHistory, Router } from 'react-router'
+import { browserHistory, hashHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 
 // configurations

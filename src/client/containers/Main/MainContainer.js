@@ -1,11 +1,9 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
 
-export default class MainContainer extends Component {
-
-  constructor (props) {
-    super(props)
-  }
-
+const MainContainer = React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
   render () {
     return (
       <div className='Main' role='main'>
@@ -13,4 +11,6 @@ export default class MainContainer extends Component {
       </div>
     )
   }
-}
+})
+
+export default MainContainer
