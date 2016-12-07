@@ -4,16 +4,16 @@ import HeaderComponent from 'components/Header/HeaderComponent'
 
 export default class HomeContainer extends Component {
 
-    constructor ( props ) {
-        super( props )
-    }
+  constructor (props) {
+    super(props)
+  }
 
-    render () {
-        return (
-            <div>
-              <HeaderComponent />
-              <ActivityComponent />
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div>
+        <HeaderComponent />
+        <ActivityComponent />
+      </div>
+    )
+  }
 }
