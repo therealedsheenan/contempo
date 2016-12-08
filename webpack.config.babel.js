@@ -33,7 +33,8 @@ module.exports = env => {
     devServer: {
       contentBase: PATHS.output,
       inline: true,
-      port: 8000
+      port: 8000,
+      historyApiFallback: true
     },
     module: {
       loaders: [
