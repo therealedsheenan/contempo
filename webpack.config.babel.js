@@ -23,7 +23,7 @@ module.exports = env => {
       ]
     },
     context: PATHS.app,
-    entry: './client/browser.js',
+    entry: './client/index.js',
     output: {
       path: PATHS.output,
       filename: ifProd('bundle.[name].[hash].js', 'bundle.[name].js'),
@@ -40,7 +40,10 @@ module.exports = env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          include: [
+            resolve('src')
+          ]
         },
         // {
         //     test: /\.scss$/,
