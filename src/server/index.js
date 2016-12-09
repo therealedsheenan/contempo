@@ -1,47 +1,35 @@
-import getRoutes from '../client/config/routes.js'
-import { store } from '../client/config/store.js'
-import express from 'express'
-import React from 'react'
-import { Provider } from 'react-redux'
-import { match, RouterContext } from 'react-router'
-import fs from 'fs'
-import { renderToString } from 'react-dom/server'
-import * as path from 'path'
+require('babel-register')
 
-const template = fs.readFileSync('./index.html')
+const express = require('express')
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const ReactRouter = require('react-router')
+const ServerRouter = ReactRouter.ServerRouter
+const _ = require('lodash')
+const fs = require('fs')
 const port = 5000
+const baseTemplate = fs.readFileSync('./src/server/index.html')
+const template = _.template(baseTemplate)
+const App = require('../client/app').default
+const server = express()
 
-const app = express()
+server.use('/public', express.static('./public'))
 
-app.use('/public', express.static('./public'))
-
-app.use((req, res) => {
-  match({ routes: getRoutes(), location: req.url }, (error, redirectLocation, renderProps) => {
-    if (error) {
-      res.status(500).send(error.message)
-      console.log(error.message)
-    } else if (redirectLocation) {
-      // redirect URL
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-    } else if (renderProps) {
-        // render react to string
-      const content = renderToString(
-        React.createElement(
-          Provider,
-          { store },
-          React.createElement(
-            RouterContext,
-            renderProps
-          )
-        )
-      )
-      res.status(200).send(template({ content }))
-    } else {
-      // cannot find URL
-      res.status(404).send('Not Found')
-    }
-  })
+server.use((req, res) => {
+  const context = ReactRouter.createServerRenderContext()
+  let body = ReactDOMServer.renderToString(
+    React.createElement(
+      ServerRouter,
+      {
+        location: req.url,
+        context: context
+      },
+      React.createElement(App)
+    )
+  )
+  res.write(template({body: body}))
+  res.end()
 })
 
-console.log('listening on port ' + port)
-app.listen(port)
+console.log('listening on' + port)
+server.listen(port)

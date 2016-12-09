@@ -26,7 +26,7 @@ module.exports = env => {
     entry: './client/index.js',
     output: {
       path: PATHS.output,
-      filename: ifProd('bundle.[name].[hash].js', 'bundle.[name].js'),
+      filename: ifProd('bundle.[name].js', 'bundle.[hash].js'),
       pathinfo: ifNotProd()
     },
     devtool: ifProd('source-map', 'eval'),
@@ -79,7 +79,7 @@ module.exports = env => {
       new ProgressBarPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
-      new ExtractTextPlugin(ifProd('styles.[name].[chunkhash].css', 'styles.[name].css')),
+      new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
       ifProd(new InlineManifestWebpackPlugin()),
       ifProd(new webpack.optimize.CommonsChunkPlugin({
         names: 'manifest'
