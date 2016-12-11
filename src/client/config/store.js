@@ -3,18 +3,18 @@ import thunk from 'redux-thunk'
 import { routerReducer } from 'react-router-redux'
 
 // redux settings
-// import * as reducers from '../redux/modules'
 import greeting from '../redux/modules'
 
-let nodeEnv = 'development'
+// let nodeEnv = 'development'
 
 const store = createStore(
   combineReducers({
     greeting,
-    routing: routerReducer}),
+    routing: routerReducer
+  }),
   compose(
     applyMiddleware(thunk),
-    nodeEnv !== 'production' ? window.devToolsExtension() : (f) => f
+    // nodeEnv !== 'production' ? window.devToolsExtension() : (f) => f
   )
 )
 

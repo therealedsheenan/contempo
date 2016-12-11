@@ -1,12 +1,11 @@
 CACHE MANIFEST
-#ver:12/9/2016, 7:31:23 PM
+#ver:12/10/2016, 5:11:30 PM
 
 CACHE:
 ../bundle.0.js
 ../bundle.1.js
 ../bundle.main.js
 ../bundle.manifest.js
-../styles.main.css
 ../
 
 NETWORK:

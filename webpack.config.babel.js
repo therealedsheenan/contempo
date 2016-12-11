@@ -10,23 +10,27 @@ import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
 const PATHS = {
   app: resolve('src'),
   output: resolve('public'),
-  styles: resolve('/src/client/styles/main.js')
+  entry: './client/index.js',
+  styles: './client/styles/main.scss'
 }
 
 module.exports = env => {
   const {ifProd, ifNotProd} = getIfUtils(env)
   const config = {
+    context: resolve('src'),
     resolve: {
       modules: [
         resolve('./src/client'),
         'node_modules'
       ]
     },
-    context: PATHS.app,
-    entry: './client/index.js',
+    entry: {
+      app: PATHS.entry,
+      vendor: [PATHS.styles]
+    },
     output: {
       path: PATHS.output,
-      filename: ifProd('bundle.[name].js', 'bundle.[hash].js'),
+      filename: ifProd('[hash].entry.js', '[name].entry.js'),
       pathinfo: ifNotProd()
     },
     devtool: ifProd('source-map', 'eval'),
@@ -41,10 +45,10 @@ module.exports = env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          include: [
-            resolve('src')
-          ]
+          loaders: ['babel']// ,
+          // include: [
+          //   resolve('src')
+          // ]
         },
         // {
         //     test: /\.scss$/,
@@ -82,7 +86,7 @@ module.exports = env => {
       new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
       ifProd(new InlineManifestWebpackPlugin()),
       ifProd(new webpack.optimize.CommonsChunkPlugin({
-        names: 'manifest'
+        names: ['vendor', 'manifest']
       })),
       new HtmlWebpackPlugin({
         template: './index.html',
