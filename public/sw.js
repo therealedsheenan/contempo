@@ -1,31 +1,29 @@
 var __wpo = {
   "assets": {
     "main": [
-      "./bundle.0.js",
-      "./bundle.1.js",
-      "./bundle.main.js",
-      "./bundle.manifest.js",
+      "./0.js",
+      "./1.js",
+      "./main.js",
       "./"
     ],
     "additional": [],
     "optional": []
   },
   "hashesMap": {
-    "2961dade57ecb162623ccc2b3621355d": "./bundle.0.js",
-    "f9c71551d4091338ad300bada4e898f5": "./bundle.1.js",
-    "41474f1578b22838e2f1a856d53364d3": "./bundle.main.js",
-    "2ebf790c589c7dd3006fa93453cae0ca": "./bundle.manifest.js",
-    "fda927c65579bc7d1f43ff90cb8bf9d1": "./"
+    "41a52dc44e8889d2906e0c3bf96e4c00": "./0.js",
+    "64972e8995f1420bf4ec7c47cbc67574": "./1.js",
+    "5ba6404769dd13815d8f4565a3b89ddb": "./main.js",
+    "c8725a5dce6e61159a30621283d171b0": "./"
   },
   "strategy": "all",
-  "version": "12/10/2016, 5:11:30 PM",
+  "version": "12/13/2016, 6:43:37 PM",
   "name": "webpack-offline",
   "relativePaths": true
 };
 
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0e67dad23505bae70cd9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a63f8d5caa958199db66"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -658,7 +656,7 @@ var __wpo = {
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/public/";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
