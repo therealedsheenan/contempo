@@ -17,10 +17,15 @@ Checkout the package.json for various build commands.
 Adds prebuild rimraf clean-up on the public directory.
 
 To run a basic development environment:
-- `npm run dev`
-- `npm run server`
 
-######### There will be new commands in the following pushes #########
+`npm run dev` - Runs the basic development environment.
+
+`npm run server` - Runs the webpack build and server script(server-rendering).
+
+Access: `http://localhost:8000`
+
+`npm test` - Runs the jest testing.
+
 
 ####Under the hood:
  - Before running the various builds, npm scripts runs the prebuild `rimraf` command
