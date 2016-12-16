@@ -10,8 +10,7 @@ import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
 const PATHS = {
   app: resolve('src'),
   output: resolve('public'),
-  entry: './client/index.js',
-  styles: './client/styles/main.scss'
+  entry: './client/index.js'
 }
 
 module.exports = env => {
