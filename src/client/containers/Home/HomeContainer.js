@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { GreetingComponent } from 'components'
+import 'styles/main.scss'
 
 const HomeContainer = React.createClass({
   render () {

@@ -90,7 +90,7 @@
   },
   "scripts": {
     "prerun": "rimraf public",
-    "build": "webpack --env.prod",
+    "build": "webpack --env.dev",
     "prebuild": "concurrently \"npm run prerun\"",
     "prebuild:dev": "concurrently \"npm run prerun\"",
     "build:dev": "webpack --env.dev",

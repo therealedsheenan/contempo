@@ -24,14 +24,12 @@ module.exports = env => {
         'node_modules'
       ]
     },
-    entry: {
-      app: PATHS.entry,
-      vendor: [PATHS.styles]
-    },
+    entry: PATHS.entry,
     output: {
       path: PATHS.output,
-      filename: ifProd('[hash].entry.js', '[name].entry.js'),
-      pathinfo: ifNotProd()
+      filename: ifProd('[name].[hash].js', '[name].js'),
+      pathinfo: ifNotProd(),
+      publicPath: '/public/'
     },
     devtool: ifProd('source-map', 'eval'),
     devServer: {
@@ -45,16 +43,11 @@ module.exports = env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loaders: ['babel']// ,
-          // include: [
-          //   resolve('src')
-          // ]
+          loaders: ['babel'],
+          include: [
+            resolve('src')
+          ]
         },
-        // {
-        //     test: /\.scss$/,
-        //     exclude: /node_modules/,
-        //     loaders: ["style", "css?sourceMap", "sass?sourceMap"]
-        // },
         {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract({
@@ -86,7 +79,7 @@ module.exports = env => {
       new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
       ifProd(new InlineManifestWebpackPlugin()),
       ifProd(new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendor', 'manifest']
+        names: ['vendor']
       })),
       new HtmlWebpackPlugin({
         template: './index.html',
