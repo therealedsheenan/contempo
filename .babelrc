@@ -5,9 +5,9 @@
     "stage-0",
     "latest"
   ],
-  env: {
-    start: {
-      presets: [
+  "env": {
+    "start": {
+      "presets": [
         "react-hmre"
       ]
     }
