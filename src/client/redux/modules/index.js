@@ -4,7 +4,7 @@ const initialState = {
   greeting: ''
 }
 
-export default function greeting (state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case INITIATE_GREETING :
       return {
