@@ -23,6 +23,11 @@ module.exports = env => {
         'node_modules'
       ]
     },
+    stats: {
+      colors: true,
+      reasons: true,
+      chunks: false
+    },
     entry: PATHS.entry,
     output: {
       path: PATHS.output,
