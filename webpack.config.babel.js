@@ -47,7 +47,7 @@ module.exports = env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loaders: ['babel'],
+          loader: 'babel-loader',
           include: [
             resolve('src')
           ]
@@ -55,8 +55,8 @@ module.exports = env => {
         {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style',
-            loader: ['css', 'sass']
+            fallbackLoader: 'style-loader',
+            loader: ['css-loader', 'sass-loader']
           })
         },
         {
@@ -79,7 +79,7 @@ module.exports = env => {
     plugins: removeEmpty([
       new ProgressBarPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
       ifProd(new InlineManifestWebpackPlugin()),
       ifProd(new webpack.optimize.CommonsChunkPlugin({
