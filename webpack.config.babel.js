@@ -31,7 +31,7 @@ module.exports = env => {
     entry: PATHS.entry,
     output: {
       path: PATHS.output,
-      filename: ifProd('[name].[hash].js', '[name].js'),
+      filename: ifProd('[name].js', '[name].js'),
       pathinfo: ifNotProd(),
       publicPath: '/public/'
     },
@@ -83,7 +83,8 @@ module.exports = env => {
       new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
       ifProd(new InlineManifestWebpackPlugin()),
       ifProd(new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendor']
+        name: 'commons',
+        filename: 'commons.js'
       })),
       new HtmlWebpackPlugin({
         template: './index.html',
