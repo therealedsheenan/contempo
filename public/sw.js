@@ -18,7 +18,7 @@ var __wpo = {
     "00c68f26222e8aa28ae22bb56d795105": "./"
   },
   "strategy": "all",
-  "version": "1/18/2017, 3:19:13 PM",
+  "version": "1/19/2017, 5:56:08 PM",
   "name": "webpack-offline",
   "relativePaths": true
 };

@@ -9,6 +9,8 @@ const Title = styled.h1`
 
 export default function GreetingComponent (props) {
   return (
-    <div className='Greeting'><Title>Hello Contempo</Title></div>
+    <div className='Greeting'>
+      <Title>Hello Contempo</Title>
+    </div>
   )
 }
