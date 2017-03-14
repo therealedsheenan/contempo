@@ -1,0 +1,9 @@
+exports[`test Link changes the class when hovered 1`] = `
+<div
+  className="Greeting">
+  <h1
+    className="iEphjE">
+    Hello Contempo
+  </h1>
+</div>
+`;
