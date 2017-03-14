@@ -103,7 +103,7 @@
     "debug": "webpack --env.debug",
     "debug:dev": "npm run debug -- --env.dev",
     "debug:prod": "npm run debug -- --env.prod",
-    "test": "NODE_PATH=src/client jest",
+    "test": "NODE_ENV=test NODE_PATH=src/client jest",
     "production": "webpack --env.prod -p",
     "translation": "babel-node src/translation/server.js",
     "watchTranslate": "NODE_ENV=production webpack --progress --colors --watch",
