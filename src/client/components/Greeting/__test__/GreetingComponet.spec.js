@@ -1,4 +1,3 @@
-// Link.react-test.js
 import React from 'react'
 import renderer from 'react-test-renderer'
 import GreetingComponent from '../GreetingComponent'

@@ -4,7 +4,7 @@ import { css } from 'styled-components'
 export const styledMobile = {
   handheld: (...args) => css`
     @media ${mq.mobile} {
-      ${ css(...args) }
+      ${css(...args)}
     }
   `
 }
@@ -12,7 +12,7 @@ export const styledMobile = {
 export const styledTablet = {
   handheld: (...args) => css`
     @media ${mq.tablet} {
-      ${ css(...args) }
+      ${css(...args)}
     }
   `
 }
@@ -20,8 +20,7 @@ export const styledTablet = {
 export const styledDesktop = {
   handheld: (...args) => css`
     @media ${mq.desktop} {
-      ${ css(...args) }
+      ${css(...args)}
     }
   `
 }
-
