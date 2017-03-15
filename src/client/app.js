@@ -1,7 +1,7 @@
 import React from 'react'
 import { Match } from 'react-router'
 import { Provider } from 'react-redux'
-import { AsyncRoute } from './components'
+import AsyncRoute from './components/AsyncRoute/AsyncRoute'
 
 import { store } from './config/store.js'
 
