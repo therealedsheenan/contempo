@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { GreetingComponent } from 'components'
+import GreetingComponent from '../../components/Greeting/GreetingComponent'
 import 'styles/base.scss'
 
 const HomeContainer = React.createClass({
