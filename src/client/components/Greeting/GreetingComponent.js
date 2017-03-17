@@ -1,16 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Title } from './styles'
 
-const Title = styled.h1`
-  font-size: 1.5rem;
-  text-align: center;
-  color: red;
-`
-
-export default function GreetingComponent (props) {
+const GreetingComponent = (props) => {
   return (
     <div className='Greeting'>
       <Title>Hello Contempo</Title>
     </div>
   )
 }
+
+export default GreetingComponent
