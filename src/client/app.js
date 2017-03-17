@@ -3,7 +3,9 @@ import { Match } from 'react-router'
 import { Provider } from 'react-redux'
 import AsyncRoute from './components/AsyncRoute/AsyncRoute'
 
-import { store } from './config/store.js'
+import routes from './config/routes'
+
+import { store } from './config/store'
 
 if (global) global.System = { import () {} }
 

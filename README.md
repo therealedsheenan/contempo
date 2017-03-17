@@ -39,6 +39,11 @@ that cleans up the public directory. This public directory servers as the output
 - [Frontend masters](https://frontendmasters.com/)
 - [React-scripts](https://github.com/facebookincubator/create-react-app)
 
+
+## File Structure
+This Project uses `style-components` in rendering styles.
+Each of the files in components directory has `styles.js` which is basically the `styled-components` source code.
+
 ###Disclaimer
 This project is still in development.
 Check this out for future updates.
