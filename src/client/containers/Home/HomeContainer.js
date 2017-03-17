@@ -8,7 +8,7 @@ const HomeContainer = React.createClass({
     return (
       <div>
         <GreetingComponent />
-        <Link to='/styleguide'>{'Styleguide'}</Link>
+        <Link to='/styleguide'>Styleguide</Link>
       </div>
     )
   }
