@@ -14,7 +14,7 @@ const store = createStore(
   }),
   compose(
     applyMiddleware(thunk),
-    // nodeEnv !== 'production' ? window.devToolsExtension() : (f) => f
+    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
   )
 )
 
