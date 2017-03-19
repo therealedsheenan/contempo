@@ -1,0 +1,17 @@
+{
+  "greeting":
+  [
+    {
+      "type": 1,
+      "content": "Morning"
+    },
+    {
+      "type": 2,
+      "content": "Afternoon"
+    },
+    {
+      "type": 3,
+      "content": "Evening"
+    }
+  ]
+}

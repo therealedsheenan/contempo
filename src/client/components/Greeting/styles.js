@@ -5,3 +5,9 @@ export const Title = styled.h1`
   text-align: center;
   color: red;
 `
+
+export const SubTitle = styled.p`
+  font-size: 1rem;
+  text-align: center;
+  color: gray
+`
