@@ -3,7 +3,12 @@ exports[`test Link changes the class when hovered 1`] = `
   className="Greeting">
   <h1
     className="iEphjE">
-    Hello Contempo
+    Good 
+    !
   </h1>
+  <p
+    className="dmInQd">
+    Welcome to contempo!
+  </p>
 </div>
 `;
