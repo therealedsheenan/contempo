@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs'
-import { ajax } from 'rxjs/observable/dom/ajax';
+import { ajax } from 'rxjs/observable/dom/ajax'
 
 const GET_GREETING = 'GREETING_REQUEST'
 const GET_GREETING_ERROR = 'GREETING_ERROR'
@@ -25,15 +25,15 @@ const getGreetingSuccess = (payload) => {
   let hr = new Date().getHours()
   let greeting
 
-  if (hr > 0 && hr < 12) {
+  if (hr >= 0 && hr <= 12) {
     greeting = payload.greetings[0]
   }
 
-  if (hr > 12 && hr < 18) {
+  if (hr >= 12 && hr <= 18) {
     greeting = payload.greetings[1]
   }
 
-  if (hr > 18 && hr < 24) {
+  if (hr >= 18 && hr <= 24) {
     greeting = payload.greetings[2]
   }
 
