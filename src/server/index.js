@@ -1,31 +1,26 @@
 require('babel-register')
 
-const express = require('express')
-const React = require('react')
-const ReactDOMServer = require('react-dom/server')
-const ReactRouter = require('react-router')
-const ServerRouter = ReactRouter.ServerRouter
-const _ = require('lodash')
-const fs = require('fs')
+import express from 'express'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import _ from 'lodash'
+import fs from 'fs'
+
 const port = 8000
 const baseTemplate = fs.readFileSync('./src/server/index.html')
 const template = _.template(baseTemplate)
-const App = require('../client/app').default
+import App from '../client/app'
 const server = express()
 
 server.use('/public', express.static('./public'))
 
 server.use((req, res) => {
-  const context = ReactRouter.createServerRenderContext()
+  const context = {}
   let body = ReactDOMServer.renderToString(
-    React.createElement(
-      ServerRouter,
-      {
-        location: req.url,
-        context: context
-      },
-      React.createElement(App)
-    )
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
   )
   res.write(template({body: body}))
   res.end()
