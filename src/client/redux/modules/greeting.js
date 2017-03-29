@@ -46,7 +46,7 @@ const getGreetingSuccess = (payload) => {
 export const greetingEpic = action$ =>
   action$.ofType(GET_GREETING)
     .mergeMap(action =>
-      ajax.getJSON('data/greeting.json')
+      ajax.getJSON('./data/greeting.json')
         .map(response => getGreetingSuccess(response))
         .catch(getGreetingError)
     )

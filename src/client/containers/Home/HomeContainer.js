@@ -5,7 +5,7 @@ import { requestGreeting } from '../../redux/modules/greeting'
 import GreetingComponent from '../../components/Greeting/GreetingComponent'
 
 // base css
-import 'styles/base.scss'
+import '../../styles/base.scss'
 
 const HomeContainer = React.createClass({
   propTypes: {
