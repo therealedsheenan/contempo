@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { requestGreeting } from '../../redux/modules/greeting'
+import { requestGreeting } from '../../redux/greeting/actions'
 
 import GreetingComponent from '../../components/Greeting/GreetingComponent'
 

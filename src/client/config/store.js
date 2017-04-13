@@ -1,12 +1,17 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-// import thunk from 'redux-thunk'
 import { routerReducer } from 'react-router-redux'
-import { createEpicMiddleware } from 'redux-observable'
+import { createEpicMiddleware, combineEpics } from 'redux-observable'
+import 'rxjs'
 
 // redux settings
-import greetingReducer, { greetingEpic } from '../redux/modules/greeting'
+import greetingReducer from '../redux/greeting/reducer'
+import { greetingEpic } from '../redux/greeting/actions'
 
-const epicMiddleWare = createEpicMiddleware(greetingEpic)
+const combinedEpics = combineEpics(
+  greetingEpic
+)
+
+const epicMiddleWare = createEpicMiddleware(combinedEpics)
 
 export const store = createStore(
   combineReducers({

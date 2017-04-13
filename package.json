@@ -10,6 +10,7 @@
   "author": "Sheenan Tenepre",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
     "eslint-plugin-flowtype": "2.21.0",
     "react": "^15.4.2",
     "react-router": "^4.0.0",
@@ -60,6 +61,7 @@
     "jest": "^17.0.3",
     "jsdom": "^9.5.0",
     "lodash": "^4.14.1",
+    "nock": "^9.0.13",
     "node-sass": "^3.10.1",
     "offline-plugin": "^3.4.2",
     "progress-bar-webpack-plugin": "^1.9.0",
@@ -70,6 +72,7 @@
     "react-redux": "^4.4.5",
     "react-router-redux": "^4.0.5",
     "react-test-renderer": "^15.4.0",
+    "redux-mock-store": "^1.2.3",
     "redux-observable": "^0.14.1",
     "redux-thunk": "^2.1.0",
     "rimraf": "^2.5.4",
