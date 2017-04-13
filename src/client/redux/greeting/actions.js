@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URL } from '../../helpers/constants'
 import * as type from './types'
 
 export const requestGreeting = () => {
@@ -40,7 +41,7 @@ export const greetingEpic = action$ => {
   return (
     action$.ofType(type.GET_GREETING)
       .mergeMap(action => {
-        return axios.get('./data/greeting.json')
+        return axios.get(`${API_URL}/data/greeting.json`)
           .then(res => getGreetingSuccess(res))
           .catch(error => getGreetingError(error))
       })
