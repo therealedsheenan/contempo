@@ -1,5 +1,4 @@
-import {Observable} from 'rxjs'
-import { ajax } from 'rxjs/observable/dom/ajax'
+import axios from 'axios'
 
 const GET_GREETING = 'GREETING_REQUEST'
 const GET_GREETING_ERROR = 'GREETING_ERROR'
@@ -16,25 +15,27 @@ export const requestGreeting = () => {
   }
 }
 
-const getGreetingError = () => Observable.of({
-  type: GET_GREETING_ERROR,
-  error: 'Loading Error.'
-})
+const getGreetingError = (error) => {
+  return {
+    type: GET_GREETING_ERROR,
+    error: error
+  }
+}
 
 const getGreetingSuccess = (payload) => {
   let hr = new Date().getHours()
   let greeting
 
   if (hr >= 0 && hr <= 12) {
-    greeting = payload.greetings[0]
+    greeting = payload.data.greetings[0]
   }
 
   if (hr >= 12 && hr <= 18) {
-    greeting = payload.greetings[1]
+    greeting = payload.data.greetings[1]
   }
 
   if (hr >= 18 && hr <= 24) {
-    greeting = payload.greetings[2]
+    greeting = payload.data.greetings[2]
   }
 
   return {
@@ -43,13 +44,16 @@ const getGreetingSuccess = (payload) => {
   }
 }
 
-export const greetingEpic = action$ =>
+export const greetingEpic = action$ => {
+  return (
   action$.ofType(GET_GREETING)
-    .mergeMap(action =>
-      ajax.getJSON('./data/greeting.json')
-        .map(response => getGreetingSuccess(response))
-        .catch(getGreetingError)
-    )
+    .mergeMap(action => {
+      return axios.get('./data/greeting.json')
+        .then(res => getGreetingSuccess(res))
+        .catch(error => getGreetingError(error))
+    })
+  )
+}
 
 const greetingReducer = (state = initialState, action) => {
   switch (action.type) {
