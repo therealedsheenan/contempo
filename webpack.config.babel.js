@@ -43,35 +43,39 @@ module.exports = env => {
       historyApiFallback: true
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          use: ['babel-loader'],
           include: [
             resolve('src')
           ]
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
-            loader: ['css-loader', 'sass-loader']
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'sass-loader']
           })
         },
         {
           test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-          loader: 'url-loader',
-          query: {
-            name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]'),
-            limit: 10000
+          use: {
+            loader: 'url-loader',
+            query: {
+              name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]'),
+              limit: 10000
+            }
           }
         },
         {
           test: /\.(eot|ttf|wav|mp3)$/,
-          loader: 'file-loader',
-          query: {
-            name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]')
+          use: {
+            loader: 'file-loader',
+            query: {
+              name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]')
+            }
           }
         }
       ]

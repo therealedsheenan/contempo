@@ -1,22 +1,20 @@
 import React from 'react'
-const { object } = React.PropTypes
+import PropTypes from 'prop-types'
 
-const AsyncRoute = React.createClass({
-  propTypes: {
-    props: object,
-    loadingPromise: object
-  },
-  getInitialState () {
-    return {
+class AsyncRoute extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
       loaded: false
     }
-  },
+  }
   componentDidMount () {
     this.props.loadingPromise.then((module) => {
       this.component = module.default
       this.setState({loaded: true})
     })
-  },
+  }
+
   render () {
     if (this.state.loaded) {
       return <this.component {...this.props.props} />
@@ -24,6 +22,11 @@ const AsyncRoute = React.createClass({
       return <h1>loading...</h1>
     }
   }
-})
+}
+
+AsyncRoute.propTypes = {
+  props: PropTypes.object,
+  loadingPromise: PropTypes.object
+}
 
 export default AsyncRoute
