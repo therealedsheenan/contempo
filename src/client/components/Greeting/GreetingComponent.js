@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import {
   Title,
   SubTitle
@@ -14,7 +16,7 @@ const GreetingComponent = (props) => {
 }
 
 GreetingComponent.propTypes = {
-  message: React.PropTypes.string
+  message: PropTypes.string
 }
 
 export default GreetingComponent

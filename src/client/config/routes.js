@@ -7,6 +7,7 @@ import AsyncRoute from '../components/AsyncRoute/AsyncRoute'
 
 const routes = () => (
   <Root>
+
     <Route strict exact path='/' render={props => (
       <AsyncRoute
         props={props}
