@@ -11,14 +11,14 @@ var __wpo = {
     "optional": []
   },
   "hashesMap": {
-    "3a253d9b94db121c92e5d51ef7eb265c": "./0.js",
-    "5de24d5b6ea2426e26f7d5574f12652b": "./1.js",
-    "f7a501444872e5ab10cc72803ac02811": "./main.js",
+    "d099bc9cd3e8853a952f950dc0c4ddc1": "./0.js",
+    "2108d6edbe1e0b2c7a8c89b60bade83f": "./1.js",
+    "21b1b866609076214b5f848d29ef2bc3": "./main.js",
     "1aa64673a4c37be25ca27c1b62c4a8ef": "./commons.js",
     "00c68f26222e8aa28ae22bb56d795105": "./"
   },
   "strategy": "all",
-  "version": "3/29/2017, 4:34:16 PM",
+  "version": "4/21/2017, 4:30:45 PM",
   "name": "webpack-offline",
   "relativePaths": true
 };
@@ -27,7 +27,7 @@ var __wpo = {
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	var hotCurrentHash = "13e301319b08ec8c6d5c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
-/******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParentsTemp = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -39,14 +39,16 @@ var __wpo = {
 /******/ 				if(installedModules[request]) {
 /******/ 					if(installedModules[request].parents.indexOf(moduleId) < 0)
 /******/ 						installedModules[request].parents.push(moduleId);
-/******/ 				} else hotCurrentParents = [moduleId];
+/******/ 				} else {
+/******/ 					hotCurrentParents = [moduleId];
+/******/ 					hotCurrentChildModule = request;
+/******/ 				}
 /******/ 				if(me.children.indexOf(request) < 0)
 /******/ 					me.children.push(request);
 /******/ 			} else {
 /******/ 				console.warn("[HMR] unexpected require(" + request + ") from disposed module " + moduleId);
 /******/ 				hotCurrentParents = [];
 /******/ 			}
-/******/ 			hotMainModule = false;
 /******/ 			return __webpack_require__(request);
 /******/ 		};
 /******/ 		var ObjectFactory = function ObjectFactory(name) {
@@ -62,34 +64,31 @@ var __wpo = {
 /******/ 			};
 /******/ 		};
 /******/ 		for(var name in __webpack_require__) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name)) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name) && name !== "e") {
 /******/ 				Object.defineProperty(fn, name, ObjectFactory(name));
 /******/ 			}
 /******/ 		}
-/******/ 		Object.defineProperty(fn, "e", {
-/******/ 			enumerable: true,
-/******/ 			value: function(chunkId) {
-/******/ 				if(hotStatus === "ready")
-/******/ 					hotSetStatus("prepare");
-/******/ 				hotChunksLoading++;
-/******/ 				return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
-/******/ 					finishChunkLoading();
-/******/ 					throw err;
-/******/ 				});
+/******/ 		fn.e = function(chunkId) {
+/******/ 			if(hotStatus === "ready")
+/******/ 				hotSetStatus("prepare");
+/******/ 			hotChunksLoading++;
+/******/ 			return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
+/******/ 				finishChunkLoading();
+/******/ 				throw err;
+/******/ 			});
 /******/ 	
-/******/ 				function finishChunkLoading() {
-/******/ 					hotChunksLoading--;
-/******/ 					if(hotStatus === "prepare") {
-/******/ 						if(!hotWaitingFilesMap[chunkId]) {
-/******/ 							hotEnsureUpdateChunk(chunkId);
-/******/ 						}
-/******/ 						if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
-/******/ 							hotUpdateDownloaded();
-/******/ 						}
+/******/ 			function finishChunkLoading() {
+/******/ 				hotChunksLoading--;
+/******/ 				if(hotStatus === "prepare") {
+/******/ 					if(!hotWaitingFilesMap[chunkId]) {
+/******/ 						hotEnsureUpdateChunk(chunkId);
+/******/ 					}
+/******/ 					if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 						hotUpdateDownloaded();
 /******/ 					}
 /******/ 				}
 /******/ 			}
-/******/ 		});
+/******/ 		};
 /******/ 		return fn;
 /******/ 	}
 /******/ 	
@@ -101,7 +100,7 @@ var __wpo = {
 /******/ 			_selfAccepted: false,
 /******/ 			_selfDeclined: false,
 /******/ 			_disposeHandlers: [],
-/******/ 			_main: hotMainModule,
+/******/ 			_main: hotCurrentChildModule !== moduleId,
 /******/ 	
 /******/ 			// Module API
 /******/ 			active: true,
@@ -154,7 +153,7 @@ var __wpo = {
 /******/ 			//inherit from previous dispose call
 /******/ 			data: hotCurrentModuleData[moduleId]
 /******/ 		};
-/******/ 		hotMainModule = true;
+/******/ 		hotCurrentChildModule = undefined;
 /******/ 		return hot;
 /******/ 	}
 /******/ 	
@@ -192,7 +191,6 @@ var __wpo = {
 /******/ 				hotSetStatus("idle");
 /******/ 				return null;
 /******/ 			}
-/******/ 	
 /******/ 			hotRequestedFilesMap = {};
 /******/ 			hotWaitingFilesMap = {};
 /******/ 			hotAvailableFilesMap = update.c;
@@ -601,17 +599,17 @@ var __wpo = {
 /******/ 		hotSetStatus("idle");
 /******/ 		return Promise.resolve(outdatedModules);
 /******/ 	}
-
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -621,27 +619,27 @@ var __wpo = {
 /******/ 			parents: (hotCurrentParentsTemp = hotCurrentParents, hotCurrentParents = [], hotCurrentParentsTemp),
 /******/ 			children: []
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// identity function for calling harmony imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -652,7 +650,7 @@ var __wpo = {
 /******/ 			});
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -661,16 +659,16 @@ var __wpo = {
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/public/";
-
+/******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return hotCreateRequire(2)(__webpack_require__.s = 2);
 /******/ })
