@@ -12,10 +12,10 @@ const routes = () => (
         <AsyncRoute
           props={props}
           loadingPromise={
-          System.import('../containers/Home/HomeContainer')
-        }
+            System.import('../containers/Home/HomeContainer.jsx')
+          }
         />
-    )}
+      )}
     />
 
     <Route
@@ -23,7 +23,7 @@ const routes = () => (
         <AsyncRoute
           props={props}
           loadingPromise={
-          System.import('../containers/Styleguide/StyleguideContainer')
+          System.import('../containers/Styleguide/StyleguideContainer.jsx')
         }
         />
       )}
