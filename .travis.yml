@@ -3,4 +3,5 @@ node_js:
   - "6"
 before_script:
   - npm run test:update
+  - npm run test
   - npm run eslint

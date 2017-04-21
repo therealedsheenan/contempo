@@ -4,6 +4,7 @@ exports[`test Link changes the class when hovered 1`] = `
   <h1
     className="iEphjE">
     Good 
+    No message passed.
     !
   </h1>
   <p
