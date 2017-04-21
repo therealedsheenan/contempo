@@ -1,26 +1,28 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
-import { createEpicMiddleware, combineEpics } from 'redux-observable'
-import 'rxjs'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import 'rxjs';
 
 // redux settings
-import greetingReducer from '../redux/greeting/reducer'
-import { greetingEpic } from '../redux/greeting/actions'
+import greetingReducer from '../redux/greeting/reducer';
+import { greetingEpic } from '../redux/greeting/actions';
 
-const combinedEpics = combineEpics(
-  greetingEpic
-)
+const combinedEpics = combineEpics(greetingEpic);
 
-const epicMiddleWare = createEpicMiddleware(combinedEpics)
+const epicMiddleWare = createEpicMiddleware(combinedEpics);
 
-export const store = createStore(
+const store = createStore(
   combineReducers({
     greetingReducer,
     routing: routerReducer
   }),
   compose(
     applyMiddleware(epicMiddleWare),
-    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
+    typeof window === 'object' &&
+      typeof window.devToolsExtension !== 'undefined'
+      ? window.devToolsExtension()
+      : f => f
   )
-)
+);
 
+export default store;
