@@ -4,9 +4,11 @@ import { Route } from 'react-router-dom';
 // react containers
 import Root from '../components/Root';
 import AsyncRoute from '../components/AsyncRoute/AsyncRoute';
+import Navigation from '../components/Navigation/NavigationComponent';
 
 const routes = () => (
   <Root>
+    <Route path="/" component={Navigation} />
     <Route
       strict exact path="/" render={props => (
         <AsyncRoute

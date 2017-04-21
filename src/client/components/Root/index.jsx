@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
-import Navigation from '../Navigation/NavigationComponent';
+import theme from './theme';
 
 // reset styles
 import '../../styles/base';
 
 const Root = props => (
-  <main>
-    <Navigation />
-    {props.children}
-  </main>
+  <ThemeProvider theme={theme}>
+    <main>
+      { props.children }
+    </main>
+  </ThemeProvider>
 );
 
 Root.propTypes = {
