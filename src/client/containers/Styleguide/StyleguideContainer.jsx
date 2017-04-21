@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StyleguideContainer = () => (
-  <div className="Styleguide" role="styleguide">
+  <div className="Styleguide">
     <p>this is the styleguide</p>
   </div>
   );
