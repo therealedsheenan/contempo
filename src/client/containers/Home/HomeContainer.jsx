@@ -5,8 +5,6 @@ import { requestGreeting } from '../../redux/greeting/actions';
 
 import GreetingComponent from '../../components/Greeting/GreetingComponent';
 
-// import '../../styles/base.scss';
-
 class HomeContainer extends React.Component {
   componentDidMount() {
     this.props.requestGreeting();
