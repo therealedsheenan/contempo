@@ -5,8 +5,7 @@ import { requestGreeting } from '../../redux/greeting/actions';
 
 import GreetingComponent from '../../components/Greeting/GreetingComponent';
 
-// base css
-import '../../styles/base.scss';
+// import '../../styles/base.scss';
 
 class HomeContainer extends React.Component {
   componentDidMount() {

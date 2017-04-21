@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Title, SubTitle } from './styles';
+import {
+  Title,
+  SubTitle,
+  Wrapper
+} from './styles';
 
 const GreetingComponent = props => (
-  <div className="Greeting">
+  <Wrapper>
     <Title>Good {props.message}!</Title>
     <SubTitle>Welcome to contempo!</SubTitle>
-  </div>
+  </Wrapper>
   );
 
 GreetingComponent.defaultProps = {

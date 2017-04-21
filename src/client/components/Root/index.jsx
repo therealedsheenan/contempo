@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import Navigation from '../Navigation/NavigationComponent';
+
+// reset styles
+import '../../styles/base';
 
 const Root = props => (
   <main>
-    <Link to="/">Home</Link> | <Link to="/style">Styleguide</Link>
+    <Navigation />
     {props.children}
   </main>
 );
