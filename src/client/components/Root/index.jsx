@@ -1,12 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
+
+import theme from './theme';
+
+// reset styles
+import '../../styles/base';
 
 const Root = props => (
-  <main>
-    <Link to="/">Home</Link> | <Link to="/style">Styleguide</Link>
-    {props.children}
-  </main>
+  <ThemeProvider theme={theme}>
+    <main>
+      { props.children }
+    </main>
+  </ThemeProvider>
 );
 
 Root.propTypes = {
