@@ -11,6 +11,7 @@ const GreetingComponent = props => (
   <Wrapper>
     <Title>Good {props.message}!</Title>
     <SubTitle>Welcome to contempo!</SubTitle>
+    <img src="./assets/images/sample.jpg" alt="" />
   </Wrapper>
   );
 

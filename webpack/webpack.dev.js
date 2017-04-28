@@ -1,11 +1,9 @@
-import { resolve } from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import { getIfUtils } from 'webpack-config-utils';
-import OfflinePlugin from 'offline-plugin';
-import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin';
+const { resolve } = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 const PATHS = {
   app: resolve('src'),
@@ -14,7 +12,6 @@ const PATHS = {
 };
 
 module.exports = (env) => {
-  const { ifProd, ifNotProd } = getIfUtils(env);
   const config = {
     context: resolve('src'),
     resolve: {
@@ -32,11 +29,11 @@ module.exports = (env) => {
     entry: PATHS.entry,
     output: {
       path: PATHS.output,
-      filename: ifProd('[name].js', '[name].js'),
-      pathinfo: ifNotProd(),
+      filename: '[name].js',
+      pathinfo: true,
       publicPath: '/public/'
     },
-    devtool: ifProd('source-map', 'eval'),
+    devtool: 'source-map',
     devServer: {
       contentBase: PATHS.output,
       inline: true,
@@ -65,7 +62,7 @@ module.exports = (env) => {
           use: {
             loader: 'url-loader',
             query: {
-              name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]'),
+              name: '[hash].[ext]',
               limit: 10000
             }
           }
@@ -75,22 +72,17 @@ module.exports = (env) => {
           use: {
             loader: 'file-loader',
             query: {
-              name: ifProd('[path][name].[ext]?[hash]', '[hash].[ext]')
+              name: '[hash].[ext]'
             }
           }
         }
       ]
     },
     plugins: [
-      new ProgressBarPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
-      new ExtractTextPlugin(ifProd('styles.[name].css', 'styles.[name].[chunkhash].css')),
-      ifProd(new InlineManifestWebpackPlugin()),
-      ifProd(new webpack.optimize.CommonsChunkPlugin({
-        name: 'commons',
-        filename: 'commons.js'
-      })),
+      new ExtractTextPlugin('styles.[name].css'),
+      new InlineManifestWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: 'client/index.html',
         inject: 'body'
@@ -98,7 +90,7 @@ module.exports = (env) => {
       new OfflinePlugin(),
       new webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: ifProd('"production"', '"development"')
+          NODE_ENV: 'development'
         }
       })
     ]
