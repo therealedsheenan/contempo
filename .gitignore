@@ -5,3 +5,4 @@ yarn-error.log
 partials
 public
 npm-debug.log.*
+.idea/*
