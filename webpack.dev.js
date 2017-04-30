@@ -6,17 +6,16 @@ const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 const PATHS = {
   app: resolve('src'),
-  output: resolve('public'),
+  output: resolve(__dirname, './public'),
   entry: './index.jsx'
 };
 
-// console.log(resolve('src/client'));
 
 module.exports = {
   context: resolve(__dirname, 'src/client'),
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     PATHS.entry
   ],
@@ -27,10 +26,6 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   resolve: {
-    // modules: [
-    //   resolve('./src/client'),
-    //   'node_modules'
-    // ],
     extensions: ['.js', '.jsx', '.json']
   },
   stats: {
@@ -41,7 +36,8 @@ module.exports = {
   devServer: {
     hot: true,
     contentBase: PATHS.output,
-    historyApiFallback: true
+    historyApiFallback: true,
+    publicPath: '/'
   },
   module: {
     rules: [

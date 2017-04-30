@@ -1,18 +1,27 @@
 {
   "presets": [
-    "react",
-    "es2015",
+    ["es2015", {"modules": false}],
     "stage-0",
-    "latest"
+    [
+      "latest", {
+        "es2015": {
+          "modules": false
+        }
+      }
+    ],
+    "react"
   ],
-  "env": {
-    "start": {
-      "presets": [
-        "react-hmre"
-      ]
-    },
-    "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
-    }
-  }
+  "plugins": [
+    "react-hot-loader/babel"
+  ]//,
+//  "env": {
+//    "start": {
+//      "presets": [
+//        "react-hmre"
+//      ]
+//    },
+//    "test": {
+//      "plugins": ["transform-es2015-modules-commonjs"]
+//    }
+//  }
 }

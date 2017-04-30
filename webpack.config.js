@@ -1,3 +1,3 @@
-module.exports = (env) => {
-  require('./webpack/webpack.${env}.js')
+module.exports = function(env) {
+  return require(`./webpack.${env}.js`)
 }

@@ -1,10 +1,10 @@
-import express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router';
-import _ from 'lodash';
-import fs from 'fs';
-import App from '../client/app';
+const express = require('express');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const { StaticRouter } = require('react-router');
+const _ = require('lodash');
+const fs = require('fs');
+const App = require('../client/App');
 
 require('babel-register');
 
