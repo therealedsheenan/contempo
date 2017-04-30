@@ -1,3 +1,5 @@
+require('babel-register');
+
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -5,8 +7,6 @@ const { StaticRouter } = require('react-router');
 const _ = require('lodash');
 const fs = require('fs');
 const App = require('../client/App');
-
-require('babel-register');
 
 const port = 8000;
 const baseTemplate = fs.readFileSync('./src/server/index.html');
