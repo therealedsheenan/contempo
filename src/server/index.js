@@ -1,4 +1,6 @@
-require('babel-register');
+require('babel-register')({
+  "presets": ["es2015"]
+});
 
 const express = require('express');
 const React = require('react');
@@ -6,7 +8,7 @@ const ReactDOMServer = require('react-dom/server');
 const { StaticRouter } = require('react-router');
 const _ = require('lodash');
 const fs = require('fs');
-const App = require('../client/App');
+const App = require('../client/App.jsx').default;
 
 const port = 8000;
 const baseTemplate = fs.readFileSync('./src/server/index.html');
@@ -20,6 +22,7 @@ server.use('/assets', express.static('./public/assets'));
 
 server.use((req, res) => {
   const context = {};
+
   const body = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={context}>
       <App />
@@ -29,5 +32,5 @@ server.use((req, res) => {
   res.end();
 });
 
-console.log(`listening on${port}`);
+console.log(`listening on ${port}`);
 server.listen(port);

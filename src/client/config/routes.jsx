@@ -6,6 +6,8 @@ import Root from '../components/Root';
 import AsyncRoute from '../components/AsyncRoute/AsyncRoute';
 import Navigation from '../components/Navigation/NavigationComponent';
 
+if (global) global.System = { import() {} };
+
 const routes = () => (
   <Root>
     <Route path="/" component={Navigation} />
