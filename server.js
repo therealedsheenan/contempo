@@ -1,6 +1,6 @@
-require('babel-register')({
-  "presets": ["es2015"]
-});
+require('babel-core/register')({
+  presets: ['es2015', 'react']
+})
 
 const express = require('express');
 const React = require('react');
@@ -8,7 +8,7 @@ const ReactDOMServer = require('react-dom/server');
 const { StaticRouter } = require('react-router');
 const _ = require('lodash');
 const fs = require('fs');
-const App = require('../client/App.jsx').default;
+const App = require('./src/client/App.jsx').default;
 
 const port = 8000;
 const baseTemplate = fs.readFileSync('./src/server/index.html');
