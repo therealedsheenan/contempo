@@ -72,8 +72,6 @@ module.exports = {
   },
   plugins: [
     ProgressBarPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
