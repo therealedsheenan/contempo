@@ -15,15 +15,13 @@ const PATHS = {
 module.exports = {
   context: resolve(__dirname, 'src/client'),
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     PATHS.entry
   ],
   output: {
     path: PATHS.output,
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/',
+    sourceMapFilename: '[name].map'
   },
   devtool: 'inline-source-map',
   resolve: {
@@ -33,12 +31,6 @@ module.exports = {
     colors: true,
     reasons: true,
     chunks: false
-  },
-  devServer: {
-    hot: true,
-    contentBase: PATHS.output,
-    historyApiFallback: true,
-    publicPath: '/'
   },
   module: {
     rules: [
@@ -62,7 +54,7 @@ module.exports = {
         use: {
           loader: 'url-loader',
           query: {
-            name: '[hash].[ext]',
+            name: '[path][name].[ext]?[hash]',
             limit: 10000
           }
         }
@@ -72,7 +64,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           query: {
-            name: '[hash].[ext]'
+            name: '[path][name].[ext]?[hash]'
           }
         }
       }
@@ -83,11 +75,20 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new ExtractTextPlugin('styles.[name].css'),
+    new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
       inject: 'body'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'commons',
+      filename: 'commons.js'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: 'production'
+      }
     })
   ]
 };
