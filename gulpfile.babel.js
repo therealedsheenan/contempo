@@ -1,4 +1,10 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
+const rimraf = require('rimraf');
+
+// clean asset files
+gulp.task('clean-assets', (cb) => {
+  rimraf('./public/assets', cb);
+});
 
 // Copy all static assets
 gulp.task('copy-assets', () => {
@@ -6,22 +12,12 @@ gulp.task('copy-assets', () => {
     .pipe(gulp.dest('public/assets'));
 });
 
-// Copy html to public
-gulp.task('copy-server-html', () => {
-  gulp.src('./src/server/index.html')
-    .pipe(gulp.dest('public'));
-});
-
 // running default tasks
-gulp.task('default', () => {
-  gulp.run('copy-assets');
-  gulp.run('copy-client-html');
-
+gulp.task('default', ['clean-assets', 'copy-assets'], () => {
   gulp.watch([
-    './src/client/assets/**',
-    './src/client/index.html'
+    './src/client/assets/**'
   ], () => {
+    gulp.run('clean-assets');
     gulp.run('copy-assets');
-    gulp.run('copy-client-html');
   });
 });
