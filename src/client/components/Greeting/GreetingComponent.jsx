@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Test usage of Async Component
-import Async from '../Async/AsyncComponent';
-
 import {
   Title,
   SubTitle,
@@ -15,7 +12,9 @@ const GreetingComponent = props => (
   <Wrapper>
     <Title>Good {props.message}!</Title>
     <SubTitle>Hello there! Welcome to contempo.</SubTitle>
-    <img src="./assets/images/contempo.png" alt="" />
+    <div>
+      <img style={{ width: '100%' }} src="./assets/images/contempo.png" alt="" />
+    </div>
   </Wrapper>
   );
 

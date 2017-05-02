@@ -14,7 +14,7 @@ const ReactDOMServer = require('react-dom/server');
 const { StaticRouter } = require('react-router');
 const _ = require('lodash');
 const fs = require('fs');
-const App = require('./src/client/App.jsx').default;
+const App = require('../client/App.jsx').default;
 
 const port = 8000;
 const baseTemplate = fs.readFileSync('./src/server/index.html');
