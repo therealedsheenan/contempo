@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
@@ -8,12 +7,11 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const PATHS = {
   app: resolve('src'),
   output: resolve(__dirname, './public'),
-  entry: './index.jsx'
+  entry: './client/index.jsx'
 };
 
-
 module.exports = {
-  context: resolve(__dirname, 'src/client'),
+  context: resolve(__dirname, 'src'),
   entry: [
     PATHS.entry
   ],
@@ -23,7 +21,7 @@ module.exports = {
     publicPath: '/',
     sourceMapFilename: '[name].map'
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
@@ -72,20 +70,20 @@ module.exports = {
   },
   plugins: [
     ProgressBarPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minify: true,
+      debug: false
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      inject: 'body'
-    }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'commons',
-      filename: 'commons.js'
+      children: true,
+      async: true
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: 'production'
+        NODE_ENV: '"production"'
       }
     })
   ]
