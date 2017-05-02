@@ -16,7 +16,7 @@ module.exports = {
   context: resolve(__dirname, 'src/client'),
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8000',
     'webpack/hot/only-dev-server',
     PATHS.entry
   ],
@@ -38,7 +38,8 @@ module.exports = {
     hot: true,
     contentBase: PATHS.output,
     historyApiFallback: true,
-    publicPath: '/'
+    publicPath: '/',
+    port: 8000
   },
   module: {
     rules: [
