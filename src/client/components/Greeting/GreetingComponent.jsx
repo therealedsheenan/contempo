@@ -7,10 +7,14 @@ import {
   Wrapper
 } from './styles';
 
+
 const GreetingComponent = props => (
   <Wrapper>
     <Title>Good {props.message}!</Title>
-    <SubTitle>Welcome to contempo!</SubTitle>
+    <SubTitle>Hello there! Welcome to contempo.</SubTitle>
+    <div>
+      <img style={{ width: '100%' }} src="./assets/images/contempo.png" alt="" />
+    </div>
   </Wrapper>
   );
 

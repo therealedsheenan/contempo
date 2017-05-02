@@ -3,33 +3,18 @@ import { Route } from 'react-router-dom';
 
 // react containers
 import Root from '../components/Root';
-import AsyncRoute from '../components/AsyncRoute/AsyncRoute';
 import Navigation from '../components/Navigation/NavigationComponent';
+import Async from '../components/Async/AsyncComponent';
+
+// manually importing the files
+import '../containers/Home/HomeContainer';
+import '../containers/Styleguide/StyleguideContainer';
 
 const routes = () => (
   <Root>
     <Route path="/" component={Navigation} />
-    <Route
-      strict exact path="/" render={props => (
-        <AsyncRoute
-          props={props}
-          loadingPromise={
-            System.import('../containers/Home/HomeContainer.jsx')
-          }
-        />
-      )}
-    />
-
-    <Route
-      strict exact path="/style" render={props => (
-        <AsyncRoute
-          props={props}
-          loadingPromise={
-          System.import('../containers/Styleguide/StyleguideContainer.jsx')
-        }
-        />
-      )}
-    />
+    <Route exact path="/" component={Async(System.import('../containers/Home/HomeContainer'))} />
+    <Route exact path="/style" component={Async(System.import('../containers/Styleguide/StyleguideContainer'))} />
   </Root>
 );
 
