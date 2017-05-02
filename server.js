@@ -1,6 +1,12 @@
 require('babel-core/register')({
-  presets: ['es2015', 'react']
-})
+  // presets: ['es2015', 'react']
+  presets: [
+    'es2015',
+    'stage-0',
+    'latest',
+    'react'
+  ]
+});
 
 const express = require('express');
 const React = require('react');
@@ -24,9 +30,10 @@ server.use((req, res) => {
   const context = {};
 
   const body = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
+    React.createElement(
+      StaticRouter, { location: req.url, context },
+      React.createElement(App)
+    )
   );
   res.write(template({ body }));
   res.end();

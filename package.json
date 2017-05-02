@@ -115,7 +115,7 @@
     "prebuild:dev": "concurrently \"npm run prerun\"",
     "build:dev": "webpack --env.dev",
     "dev": "webpack-dev-server --env=dev --progress",
-    "build:server": "NODE_ENV=production node server.jsx",
+    "build:server": "NODE_ENV=production node server.js",
     "watch": "webpack --watch --progress --colors --watch",
     "server": "concurrently \"npm run build:serve\" \"npm run build:server\"",
     "debug": "webpack --env.debug",
