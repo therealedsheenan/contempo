@@ -108,16 +108,17 @@
     "superagent": "^2.3.0"
   },
   "scripts": {
-    "prerun": "rimraf public",
     "build": "webpack --env.dev",
-    "build:serve": "webpack --env=prod",
+    "build:prod": "webpack --env=prod",
     "prebuild": "concurrently \"npm run prerun\"",
     "prebuild:dev": "concurrently \"npm run prerun\"",
     "build:dev": "webpack --env.dev",
-    "dev": "webpack-dev-server --env=dev --progress",
-    "build:server": "NODE_ENV=production node server.js",
+    "dev": "webpack-dev-server --env=dev",
+    "assets": "gulp",
+    "start": "concurrently \"npm run assets\" \"npm run dev\"",
+    "build:server": "NODE_ENV=production node src/server/server.js",
     "watch": "webpack --watch --progress --colors --watch",
-    "server": "concurrently \"npm run build:serve\" \"npm run build:server\"",
+    "server": "concurrently \"npm run build:prod\" \"npm run build:server\"",
     "debug": "webpack --env.debug",
     "debug:dev": "npm run debug -- --env.dev",
     "debug:prod": "npm run debug -- --env.prod",
@@ -125,8 +126,6 @@
     "test:update": "NODE_ENV=test NODE_PATH=src/client jest --updateSnapshot",
     "eslint": "NODE_ENV=test eslint src/client",
     "production": "webpack --env.prod -p",
-    "translation": "babel-node src/translation/server.js",
-    "watchTranslate": "NODE_ENV=production webpack --progress --colors --watch",
     "translate": "concurrently \"npm run watchTranslate\" \"npm run translation\""
   }
 }
