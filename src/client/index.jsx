@@ -24,4 +24,3 @@ if (module.hot) {
     render(App);
   });
 }
-
