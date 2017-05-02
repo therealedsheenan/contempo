@@ -19,8 +19,8 @@ HomeContainer.propTypes = {
   requestGreeting: PropTypes.func.isRequired,
   greeting: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object,
-  ]).isRequired,
+    PropTypes.object
+  ]).isRequired
 };
 
 const mapStateToProps = ({ greetingReducer }) => {
@@ -28,12 +28,12 @@ const mapStateToProps = ({ greetingReducer }) => {
 
   return {
     fetching,
-    greeting,
+    greeting
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestGreeting: () => dispatch(requestGreeting()),
+  requestGreeting: () => dispatch(requestGreeting())
 });
 
 export default connect(
