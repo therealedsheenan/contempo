@@ -80,7 +80,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ProgressBarPlugin(),
+    ProgressBarPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
