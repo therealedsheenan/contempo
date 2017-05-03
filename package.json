@@ -106,9 +106,7 @@
     "enzyme": "^2.4.1"
   },
   "scripts": {
-    "build": "webpack --env=dev --test=sss",
-    "analyze:dev": "webpack --env=analyze-dev",
-    "analyze:prod": "webpack --env=analyze-prod",
+    "build": "webpack --env=dev",
     "build:prod": "webpack --env=prod",
     "build:dev": "webpack --env.dev",
     "dev": "webpack-dev-server --env=dev",
