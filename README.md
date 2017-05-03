@@ -22,6 +22,16 @@ Access: `http://localhost:8000`
 `npm test` - Runs the jest testing.
 `npm run eslint` - Runs the eslint.
 
+#### Asynchronous routes / components
+Asynchronously load routes or components by using the async component:
+
+```
+import Async from '../components/Async/AsyncComponent';
+
+<Route exact path="/" component={Async(System.import('PATH_TO_COMPONENT'))} />
+```
+
+Apply lazy loading by editing the AsyncComponent's LoadingComponent method.
 
 #### Under the hood:
  - Before running the various builds, npm scripts runs the prebuild `rimraf` command
