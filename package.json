@@ -95,17 +95,14 @@
     "serialize-javascript": "^1.3.0",
     "style-loader": "^0.13.1",
     "webpack-config-utils": "^2.1.0",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-stream": "^3.2.0"
+    "webpack-dev-server": "^2.4.5"
   },
   "peerDependencies": {
     "fs": "^0.0.1-security"
   },
   "optionalDependencies": {
     "chai": "^3.5.0",
-    "enzyme": "^2.4.1",
-    "mocha": "^3.0.2",
-    "superagent": "^2.3.0"
+    "enzyme": "^2.4.1"
   },
   "scripts": {
     "build": "webpack --env.dev",
