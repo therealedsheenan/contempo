@@ -94,6 +94,7 @@
     "sass-loader": "^4.0.2",
     "serialize-javascript": "^1.3.0",
     "style-loader": "^0.13.1",
+    "webpack-bundle-analyzer": "^2.4.0",
     "webpack-config-utils": "^2.1.0",
     "webpack-dev-server": "^2.4.5"
   },
@@ -105,10 +106,10 @@
     "enzyme": "^2.4.1"
   },
   "scripts": {
-    "build": "webpack --env.dev",
+    "build": "webpack --env=dev --test=sss",
+    "analyze:dev": "webpack --env=analyze-dev",
+    "analyze:prod": "webpack --env=analyze-prod",
     "build:prod": "webpack --env=prod",
-    "prebuild": "concurrently \"npm run prerun\"",
-    "prebuild:dev": "concurrently \"npm run prerun\"",
     "build:dev": "webpack --env.dev",
     "dev": "webpack-dev-server --env=dev",
     "assets": "gulp",
