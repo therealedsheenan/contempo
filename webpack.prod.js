@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
+// View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const PATHS = {
@@ -70,6 +72,7 @@ module.exports = {
     ]
   },
   plugins: [
+    // View the bundle-analyzer plugin by uncommenting the next line.
     // new BundleAnalyzerPlugin(),
     ProgressBarPlugin(),
     new webpack.LoaderOptionsPlugin({
