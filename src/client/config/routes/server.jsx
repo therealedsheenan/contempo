@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 // react containers
 import Root from '../../components/Root/index';
 import Navigation from '../../components/Navigation/NavigationComponent';
-import Async from '../../components/Async/AsyncComponent';
+import Async from '../../components/AsyncComponent/AsyncComponent';
 // import { asyncComponent } from 'react-async-component';
 
 import Home from '../../containers/Home/HomeContainer';
