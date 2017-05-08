@@ -45,6 +45,14 @@ that cleans up the public directory. This public directory servers as the output
 - [Frontend masters](https://frontendmasters.com/)
 - [React-scripts](https://github.com/facebookincubator/create-react-app)
 
+### Feature Trade-offs
+Using hot-reloading, code-splitting and server-rendering with react-route v4 seems very cumbersome to implement.
+Instead, this repo implements hot-realoading + code-splitting for the meantime.
+
+If you want to use the server rendering feature, you can use `src/client/config/server.jsx`.
+This route file is simplified so that you can server-render your app using simple routes.
+On the other hand, the `src/client/config/split.jsx` route file is configured to best render the app using the code-splitting + 
+hot-reloading feature.
 
 ## File Structure
 This Project uses `style-components` in rendering styles.
