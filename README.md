@@ -54,6 +54,56 @@ This route file is simplified so that you can server-render your app using simpl
 On the other hand, the `src/client/config/split.jsx` route file is configured to best render the app using the code-splitting + 
 hot-reloading feature.
 
+
+### Code Splitting and Lazy-loading methods
+There are methods in implementing asynchronous routes, lazy loading components and bundle loading.
+
+1.) Asynchronous Component
+
+Component Directory:  `src/client/components/AsyncComponent`
+
+```
+  import { asyncComponent } from 'react-async-component';
+  import { Route } from 'react-router-dom';
+  
+  import 'PATH_TO_COMPONENT.js'
+  
+  <Route path="/" component={asyncComponent(Syste.import('PATH_TO_COMPONENT.js'))} />
+```
+Note that you have to separately import the component to be asynchronously loaded.
+
+2.) Asynchronous routes
+Component Directory:  `src/client/components/AsyncComponent`
+
+```
+  import { asyncComponent } from 'react-async-component';
+  import { Route } from 'react-router-dom';
+
+  <Route
+    exact
+    path="/"
+    component={
+      props => <AsyncRoute props={props} loadingPromise={System.import('../../containers/Home/HomeContainer')} />
+    }
+  />
+```
+
+3.) Bundle loader - The same as async routes but this uses the bundle-loader plugin.
+Component Directory:  `src/client/components/BundleLoader/BundleLoader`
+
+```
+  import { Route } from 'react-router-dom';
+  import MyComponent from 'PATH_TO_MY_COMPONENT.js';
+  
+  <Route
+    exact
+    path="/style"
+    component={
+      props => <Bundle {...props} component={MyComponent} />
+    }
+  />
+```
+
 ## File Structure
 This Project uses `style-components` in rendering styles.
 Each of the files in components directory has `styles.js` which is basically the `styled-components` source code.
