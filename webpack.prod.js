@@ -15,9 +15,7 @@ const PATHS = {
 
 module.exports = {
   context: resolve(__dirname, 'src'),
-  entry: [
-    PATHS.entry
-  ],
+  entry: PATHS.entry,
   output: {
     path: PATHS.output,
     filename: '[name].js',
@@ -74,7 +72,7 @@ module.exports = {
   plugins: [
     // View the bundle-analyzer plugin by uncommenting the next line.
     // new BundleAnalyzerPlugin(),
-    ProgressBarPlugin(),
+    new ProgressBarPlugin(),
     new webpack.LoaderOptionsPlugin({
       minify: true,
       debug: false
@@ -82,10 +80,18 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      children: true,
-      async: true
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   children: true,
+    //   async: true
+    // }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'node-static',
+    //   filename: 'node-static.js',
+    //   minChunks(module) {
+    //     const context = module.context;
+    //     return context && context.indexOf('node_modules') >= 0;
+    //   }
+    // }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
