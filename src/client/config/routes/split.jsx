@@ -4,15 +4,15 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 // react containers
-import Root from '../components/Root';
-import Navigation from '../components/Navigation/NavigationComponent';
-import Async from '../components/Async/AsyncComponent';
+import Root from '../../components/Root/index';
+import Navigation from '../../components/Navigation/NavigationComponent';
+import Async from '../../components/Async/AsyncComponent';
 // import { asyncComponent } from 'react-async-component';
 
-import Bundle from '../components/BundleLoader/BundleLoader';
+import Bundle from '../../components/BundleLoader/BundleLoader';
 
-import Home from 'bundle-loader?lazy!../containers/Home/HomeContainer';
-import Styleguide from 'bundle-loader?lazy!../containers/Styleguide/StyleguideContainer';
+import Home from 'bundle-loader?lazy!../../containers/Home/HomeContainer';
+import Styleguide from 'bundle-loader?lazy!../../containers/Styleguide/StyleguideContainer';
 
 const routes = () => (
   <Root>

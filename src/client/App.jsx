@@ -1,6 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import routes from './config/routes';
+// change routes to split or server
+import routes from './config/routes/split';
+// import routes from './config/routes/server';
 import store from './config/store';
 
 if (global) global.System = { import() {} };
@@ -10,6 +12,5 @@ const App = () => (
     { routes() }
   </Provider>
 );
-
 
 export default App;
