@@ -104,6 +104,42 @@ Component Directory:  `src/client/components/BundleLoader/BundleLoader`
   />
 ```
 
-## File Structure
-This Project uses `style-components` in rendering styles.
-Each of the files in components directory has `styles.js` which is basically the `styled-components` source code.
+## Coding Guideline:
+
+### Client Directory :`src/client`
+
+Here are the descriptions of each folders:
+
+assets: directory for media files.
+
+components - directory for all of the react presentational components.
+Each of this folder should consist the main presentational component files and a `styles.js`.
+This `styles.js` file is where all of the `styled-components` code is located.
+
+
+containers - directory for all of the react container components.
+Ideally, you should put all of styled components code on the presentational components directry, however,
+since you can basically add an inline `styled-component` code from here.
+
+
+config - directory for all of the react configurations. e.g: routes, redux store and etc...
+
+
+helpers - directory for helper code snippets.
+
+redux - directory for all of the redux-related code(actions, reducers, action types).
+
+styles - directory for all of the common `styled-components` code and base CSS or SCSS files.
+This directory is different from the components directory's `styles.js`. `styles.js` from the components
+directory are only specific to the react-presentational styles of the current directory.
+
+index.html - The main html file to be generated.
+
+App.jsx and index.jsx - preliminary configuration for this react project.
+
+
+### Server Directory :`src/server`.
+
+index.js - server-rendering script.
+
+index.html - The main html file to be rendered.
