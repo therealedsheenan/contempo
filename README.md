@@ -45,7 +45,101 @@ that cleans up the public directory. This public directory servers as the output
 - [Frontend masters](https://frontendmasters.com/)
 - [React-scripts](https://github.com/facebookincubator/create-react-app)
 
+### Feature Trade-offs
+Using hot-reloading, code-splitting and server-rendering with react-route v4 seems very cumbersome to implement.
+Instead, this repo implements hot-realoading + code-splitting for the meantime.
 
-## File Structure
-This Project uses `style-components` in rendering styles.
-Each of the files in components directory has `styles.js` which is basically the `styled-components` source code.
+If you want to use the server rendering feature, you can use `src/client/config/server.jsx`.
+This route file is simplified so that you can server-render your app using simple routes.
+On the other hand, the `src/client/config/split.jsx` route file is configured to best render the app using the code-splitting + 
+hot-reloading feature.
+
+
+### Code Splitting and Lazy-loading methods
+There are methods in implementing asynchronous routes, lazy loading components and bundle loading.
+
+1.) Asynchronous Component
+
+Component Directory:  `src/client/components/AsyncComponent`
+
+```
+  import { asyncComponent } from 'react-async-component';
+  import { Route } from 'react-router-dom';
+  
+  import 'PATH_TO_COMPONENT.js'
+  
+  <Route path="/" component={asyncComponent(Syste.import('PATH_TO_COMPONENT.js'))} />
+```
+Note that you have to separately import the component to be asynchronously loaded.
+
+2.) Asynchronous routes
+Component Directory:  `src/client/components/AsyncComponent`
+
+```
+  import { asyncComponent } from 'react-async-component';
+  import { Route } from 'react-router-dom';
+
+  <Route
+    exact
+    path="/"
+    component={
+      props => <AsyncRoute props={props} loadingPromise={System.import('../../containers/Home/HomeContainer')} />
+    }
+  />
+```
+
+3.) Bundle loader - The same as async routes but this uses the bundle-loader plugin.
+Component Directory:  `src/client/components/BundleLoader/BundleLoader`
+
+```
+  import { Route } from 'react-router-dom';
+  import MyComponent from 'PATH_TO_MY_COMPONENT.js';
+  
+  <Route
+    exact
+    path="/style"
+    component={
+      props => <Bundle {...props} component={MyComponent} />
+    }
+  />
+```
+
+## Coding Guideline:
+
+### Client Directory :`src/client`
+
+Here are the descriptions of each folders:
+
+`assets` - directory for media files.
+
+`components` - directory for all of the react presentational components.
+Each of this folder should consist the main presentational component files and a `styles.js`.
+This `styles.js` file is where all of the `styled-components` code is located.
+
+
+`containers` - directory for all of the react container components.
+Ideally, you should put all of styled components code on the presentational components directry, however,
+since you can basically add an inline `styled-component` code from here.
+
+
+`config` - directory for all of the react configurations. e.g: routes, redux store and etc...
+
+
+`helpers` - directory for helper code snippets.
+
+`redux` - directory for all of the redux-related code(actions, reducers, action types).
+
+`styles` - directory for all of the common `styled-components` code and base CSS or SCSS files.
+This directory is different from the components directory's `styles.js`. `styles.js` from the components
+directory are only specific to the react-presentational styles of the current directory.
+
+`index.html` - The main html file to be generated.
+
+`App.jsx and index.jsx` - preliminary configuration for this react project.
+
+
+### Server Directory :`src/server`.
+
+index.js - server-rendering script.
+
+index.html - The main html file to be rendered.

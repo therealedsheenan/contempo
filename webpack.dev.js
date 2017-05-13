@@ -35,7 +35,7 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: true
   },
   devServer: {
     hot: true,
@@ -85,7 +85,36 @@ module.exports = {
   plugins: [
     // View the bundle-analyzer plugin by uncommenting the next line.
     // new BundleAnalyzerPlugin(),
-    ProgressBarPlugin(),
+    new ProgressBarPlugin(),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   filename: '[name].js',
+    //   minChunks: Infinity
+    // }),
+    // async chunks
+    // catch all - used in more then one place
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   async: 'used-twice',
+    //   minChunks(module, count) {
+    //     return count >= 2;
+    //   }
+    // }),
+    // specifically bundle these large things
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   async: 'react-dnd',
+    //   minChunks(module, count) {
+    //     var context = module.context;
+    //     var targets = [
+    //      'react-dnd',
+    //      'react-dnd-html5-backend',
+    //      'react-dnd-touch-backend',
+    //      'dnd-core'
+    //     ]
+    //     return context &&
+    //     context.indexOf('node_modules') >= 0 &&
+    //     targets.find(t => new RegExp('\\\\' + t + '\\\\', 'i').test(context));
+    //   },
+    // }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
