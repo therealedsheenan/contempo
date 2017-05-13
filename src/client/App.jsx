@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 // change routes to split or server
-import routes from './config/routes/split';
+import routes from './config/router';
 // import routes from './config/routes/server';
 import store from './config/store';
 

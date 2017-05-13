@@ -23,7 +23,7 @@ gulp.task('default', ['clean-assets', 'copy-favicon', 'copy-assets'], () => {
   gulp.watch([
     './src/client/assets/**'
   ], () => {
-    gulp.run('clean-assets');
+    // gulp.run('clean-assets');
     gulp.run('copy-favicon');
     gulp.run('copy-assets');
   });
