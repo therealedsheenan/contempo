@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -22,7 +24,8 @@ module.exports = {
     path: PATHS.output,
     filename: '[name].js',
     publicPath: '/',
-    sourceMapFilename: '[name].map'
+    sourceMapFilename: '[name].map',
+    chunkFilename: '[id].[hash].js'
   },
   devtool: 'source-map',
   resolve: {
@@ -79,9 +82,15 @@ module.exports = {
       minify: true,
       debug: false
     }),
+    new ManifestPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,
       async: true
@@ -90,6 +99,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    })
+    }),
+    new OfflinePlugin()
   ]
 };

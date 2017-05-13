@@ -18,6 +18,10 @@ const render = (Component) => {
 
 render(App);
 
+if (process.env.NODE_ENV === 'production') {
+  require('offline-plugin/runtime').install();
+}
+
 // Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./App', () => {
