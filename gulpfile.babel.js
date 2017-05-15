@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const rimraf = require('rimraf');
 
 // clean asset files
-gulp.task('clean-assets', (cb) => {
-  rimraf('./public/assets', cb);
+gulp.task('clean-public', (cb) => {
+  rimraf('./public', cb);
 });
 
 // Copy all static assets
@@ -18,13 +18,11 @@ gulp.task('copy-favicon', () => {
     .pipe(gulp.dest('public'));
 });
 
-// running default tasks
-gulp.task('default', ['clean-assets', 'copy-favicon', 'copy-assets'], () => {
-  gulp.watch([
-    './src/client/assets/**'
-  ], () => {
-    // gulp.run('clean-assets');
-    gulp.run('copy-favicon');
-    gulp.run('copy-assets');
-  });
+
+// Rerun the task when a file changes
+gulp.task('watch', () => {
+  gulp.watch('./src/client/assets/**', ['copy-favicon', 'copy-assets']);
 });
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['watch', 'clean-public', 'copy-favicon', 'copy-assets']);

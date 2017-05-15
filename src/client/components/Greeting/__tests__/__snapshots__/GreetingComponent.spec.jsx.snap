@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<div
+  className="cklcwZ"
+>
+  <h1
+    className="eytrmd"
+  >
+    Good 
+    No message passed.
+    !
+  </h1>
+  <p
+    className="kuUXHy"
+  >
+    Hello there! Welcome to contempo.
+  </p>
+  <div>
+    <img
+      alt=""
+      src="./assets/images/contempo.png"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

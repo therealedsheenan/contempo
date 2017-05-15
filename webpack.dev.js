@@ -25,8 +25,9 @@ module.exports = {
   ],
   output: {
     path: PATHS.output,
-    filename: '[name].js',
-    publicPath: '/'
+    filename: '[name].[hash].js',
+    publicPath: '/',
+    chunkFilename: '[id].[chunkhash].js'
   },
   devtool: 'inline-source-map',
   resolve: {
@@ -42,7 +43,8 @@ module.exports = {
     contentBase: PATHS.output,
     historyApiFallback: true,
     publicPath: '/',
-    port: 8000
+    port: 8000,
+    stats: 'errors-only'
   },
   module: {
     rules: [
