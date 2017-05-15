@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 // components
@@ -12,4 +13,11 @@ test('Navigation existence', () => {
     </Router>
   ).toJSON();
   expect(component).toMatchSnapshot();
+});
+
+test('Link count', () => {
+  const component = shallow(
+    <NavigationComponent />
+  );
+  expect(component.find('a').root.length).toEqual(1);
 });

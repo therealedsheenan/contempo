@@ -67,7 +67,7 @@
     "del": "^2.2.2",
     "detect-port": "^1.0.5",
     "dotenv": "^2.0.0",
-    "enzyme": "^2.6.0",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-prettier": "^1.7.0",
@@ -105,8 +105,7 @@
     "fs": "^0.0.1-security"
   },
   "optionalDependencies": {
-    "chai": "^3.5.0",
-    "enzyme": "^2.4.1"
+    "chai": "^3.5.0"
   },
   "scripts": {
     "prestart": "rimraf public",
