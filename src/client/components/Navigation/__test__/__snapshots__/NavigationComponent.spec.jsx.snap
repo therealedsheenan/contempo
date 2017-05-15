@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation existence 1`] = `
+<nav
+  className="iPrTgP"
+>
+  <a
+    className="jHEcRl"
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+   | 
+  <a
+    className="jHEcRl"
+    href="/style"
+    onClick={[Function]}
+  >
+    Styleguide
+  </a>
+</nav>
+`;

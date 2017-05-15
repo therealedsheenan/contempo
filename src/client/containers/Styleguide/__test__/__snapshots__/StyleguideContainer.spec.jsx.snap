@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home existence 1`] = `
+<div
+  className="Styleguide"
+>
+  <p>
+    this is the styleguide
+  </p>
+</div>
+`;

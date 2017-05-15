@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home existence 1`] = `
+<main>
+  <mockComponent />
+</main>
+`;
