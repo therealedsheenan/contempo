@@ -1,4 +1,3 @@
-/* eslint-disable */
 
 import React from 'react';
 import { Route } from 'react-router-dom';
@@ -8,7 +7,7 @@ import Root from '../components/Root/index';
 import Navigation from '../components/Navigation/NavigationComponent';
 // import { asyncComponent } from 'react-async-component';
 
-import AsyncRoute from "../components/AsyncRoute/AsyncRoute";
+import AsyncRoute from '../components/AsyncRoute/AsyncRoute';
 
 const routes = () => (
   <Root>
@@ -17,14 +16,24 @@ const routes = () => (
       exact
       path="/style"
       component={
-        props => <AsyncRoute {...props} loadingPromise={System.import('../containers/Styleguide/StyleguideContainer')} />
+        props => (
+          <AsyncRoute
+            props={props}
+            loadingPromise={System.import('../containers/Styleguide/StyleguideContainer')}
+          />
+        )
       }
     />
     <Route
       exact
       path="/"
       component={
-        props => <AsyncRoute {...props} loadingPromise={System.import('../containers/Home/HomeContainer')} />
+        props => (
+          <AsyncRoute
+            props={props}
+            loadingPromise={System.import('../containers/Home/HomeContainer')}
+          />
+        )
       }
     />
   </Root>
