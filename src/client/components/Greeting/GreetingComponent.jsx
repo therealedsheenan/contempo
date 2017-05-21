@@ -11,7 +11,7 @@ import {
 const GreetingComponent = props => (
   <Wrapper>
     <Title>Good {props.message}!</Title>
-    <SubTitle>Hello there! Welcome to contempo.</SubTitle>
+    <SubTitle>Welcome to</SubTitle>
     <div>
       <img style={{ width: '100%' }} src="./assets/images/contempo.png" alt="" />
     </div>
