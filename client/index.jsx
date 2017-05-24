@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './App';
+import App from './ClientApp';
 
 if (process.env.NODE_ENV === 'production') {
   // production setup
@@ -35,7 +35,7 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./ClientApp', () => {
     render(App);
   });
 }

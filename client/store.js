@@ -4,8 +4,8 @@ import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import 'rxjs';
 
 // redux settings
-import greetingReducer from '../../../src/redux/greeting/reducer';
-import { greetingEpic } from '../../../src/redux/greeting/actions';
+import greetingReducer from '../src/redux/greeting/reducer';
+import { greetingEpic } from '../src/redux/greeting/actions';
 
 const combinedEpics = combineEpics(greetingEpic);
 
