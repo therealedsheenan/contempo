@@ -17,7 +17,7 @@ const fs = require('fs');
 const App = require('./ServerApp.jsx').default;
 
 const port = 8000;
-const baseTemplate = fs.readFileSync('./setup/server/html/index.html');
+const baseTemplate = fs.readFileSync('./server/html/index.html');
 const template = _.template(baseTemplate);
 
 const server = express();
