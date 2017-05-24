@@ -110,6 +110,7 @@
   },
   "scripts": {
     "prestart": "rimraf public",
+    "preserver": "rimraf public",
     "build": "webpack --env=dev",
     "build:prod": "webpack --env=prod",
     "build:dev": "webpack --env.dev",
