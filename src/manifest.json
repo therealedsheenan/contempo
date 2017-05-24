@@ -1,0 +1,36 @@
+{
+  "name": "Contempo",
+  "short_name": "comtempo",
+  "icons": [{
+    "src": "assets/images/icons/icon_128.png",
+    "type": "image/png",
+    "sizes": "128x128"
+  }, {
+    "src": "assets/images/icons/icon_152.png",
+    "type": "image/png",
+    "sizes": "152x152"
+  }, {
+    "src": "assets/images/icons/icon_144.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  }, {
+    "src": "assets/images/icons/icon_192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  },
+    {
+      "src": "assets/images/icons/icon_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "assets/images/icons/icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}

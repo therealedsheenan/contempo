@@ -11,12 +11,12 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const PATHS = {
   app: resolve('src'),
   output: resolve(__dirname, './public'),
-  entry: './index.jsx'
+  entry: './client/index.jsx'
 };
 
 
 module.exports = {
-  context: resolve(__dirname, 'src/client'),
+  context: resolve(__dirname, ''),
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8000',
@@ -53,7 +53,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
         include: [
-          resolve('src')
+          resolve('')
         ]
       },
       {
@@ -123,7 +123,7 @@ module.exports = {
     new ExtractTextPlugin('styles.[name].css'),
     new InlineManifestWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'client/index.html',
       inject: 'body'
     })
   ]
