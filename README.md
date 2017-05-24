@@ -1,6 +1,6 @@
 ![logo contempo](https://github.com/therealedsheenan/contempo/blob/master/contempo.png)
 
-# Contempo [![Build Status](https://travis-ci.org/therealedsheenan/contempo-python-api.svg?branch=master)](https://travis-ci.org/therealedsheenan/contempo-python-api) [![Dependency Status](https://dependencyci.com/github/therealedsheenan/contempo/badge)](https://dependencyci.com/github/therealedsheenan/contempo)
+# Contempo [![Build Status](https://travis-ci.org/therealedsheenan/contempo-python-api.svg?branch=master)](https://travis-ci.org/therealedsheenan/contempo-python-api) [![Dependency Status](https://dependencyci.com/github/therealedsheenan/contempo/badge)](https://dependencyci.com/github/therealedsheenan/contempo) [![Code Climate](https://codeclimate.com/github/therealedsheenan/contempo/badges/gpa.svg)](https://codeclimate.com/github/therealedsheenan/contempo/)
 Starter development environment for React.
 This repository is a starter development environment for creating apps(specifically for React) using webpack.
 
