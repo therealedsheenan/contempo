@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -12,18 +12,18 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const PATHS = {
   app: resolve('src'),
   output: resolve(__dirname, './public'),
-  entry: './setup/server/index.jsx'
+  entry: './server/index.jsx'
 };
 
 module.exports = {
-  context: resolve(__dirname, './'),
+  context: resolve(__dirname, ''),
   entry: PATHS.entry,
   output: {
     path: PATHS.output,
     filename: '[name].js',
     publicPath: '/',
     sourceMapFilename: '[name].map',
-    chunkFilename: '[id].[hash].js'
+    chunkFilename: '[id].[hash].chunk.js'
   },
   devtool: 'source-map',
   resolve: {
@@ -80,7 +80,9 @@ module.exports = {
       minify: true,
       debug: false
     }),
-    new ManifestPlugin(),
+    CopyWebpackPlugin([
+      { from: './src/manifest.json', to: './' }
+    ]),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].[chunkhash].css'),
     new InlineManifestWebpackPlugin(),
@@ -109,7 +111,15 @@ module.exports = {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    })//,
-    // new OfflinePlugin()
+    }),
+    new OfflinePlugin({
+      relativePaths: false,
+      publicPath: '/',
+      caches: {
+        main: [':rest:']
+      },
+      safeToUseOptionalCaches: true,
+      AppCache: false
+    })
   ]
 };
