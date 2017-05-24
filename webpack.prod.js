@@ -12,11 +12,11 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const PATHS = {
   app: resolve('src'),
   output: resolve(__dirname, './public'),
-  entry: './client/index.jsx'
+  entry: './setup/server/index.jsx'
 };
 
 module.exports = {
-  context: resolve(__dirname, 'src'),
+  context: resolve(__dirname, './'),
   entry: PATHS.entry,
   output: {
     path: PATHS.output,
@@ -41,7 +41,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
         include: [
-          resolve('src')
+          resolve('./')
         ]
       },
       {
@@ -109,7 +109,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    new OfflinePlugin()
+    })//,
+    // new OfflinePlugin()
   ]
 };

@@ -16,7 +16,7 @@ const PATHS = {
 
 
 module.exports = {
-  context: resolve(__dirname, 'src/client'),
+  context: resolve(__dirname, 'src'),
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8000',
