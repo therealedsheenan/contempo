@@ -115,7 +115,7 @@
     "dev": "cross-env webpack-dev-server --env=dev",
     "assets": "gulp",
     "start": "cross-env concurrently \"npm run assets\" \"npm run dev\"",
-    "build:server": "NODE_ENV=production node src/server/server.js",
+    "build:server": "NODE_ENV=production node setup/server/run.js",
     "watch": "webpack --watch --progress --colors --watch",
     "server": "cross-env concurrently \"npm run assets\" \"npm run build:prod\" \"npm run build:server\"",
     "debug": "webpack --env.debug",
