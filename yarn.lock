@@ -1725,9 +1725,9 @@ cpy@^5.0.0:
     globby "^6.0.0"
     nested-error-stacks "^2.0.0"
 
-creasync@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/creasync/-/creasync-0.1.1.tgz#2f9029e53409ea5160d7964664a6b464c319fb97"
+creasync@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/creasync/-/creasync-0.1.2.tgz#a006e272890c14f29d5f1159b5bd690897154820"
   dependencies:
     babel-preset-es2015 "^6.24.1"
     babel-preset-react "^6.24.1"
