@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // change routes to split or server
 // import routes from './config/routes';
 import routes from '../src/config/serverRoutes';
-import store from './store';
+import store from '../src/config/store';
 
 if (global) global.System = { import() {} };
 

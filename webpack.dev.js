@@ -11,21 +11,20 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const PATHS = {
   app: resolve('src'),
   output: resolve(__dirname, './public'),
-  entry: './client/index.jsx'
+  entry: './server/index.jsx'
 };
-
 
 module.exports = {
   context: resolve(__dirname, ''),
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8000',
-    'webpack/hot/only-dev-server',
+    // 'react-hot-loader/patch',
+    // 'webpack-dev-server/client?http://localhost:8000',
+    // 'webpack/hot/only-dev-server',
     PATHS.entry
   ],
   output: {
     path: PATHS.output,
-    filename: '[name].[hash].js',
+    filename: '[name].js',
     publicPath: '/',
     chunkFilename: '[id].[chunkhash].js'
   },
