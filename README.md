@@ -13,9 +13,25 @@ Here are the following commands to install the environment.
 
 #### Running various environments:
 
-`npm start` - Runs the basic development environment.
+Using Grunt:
+
+#### Client-side rendering
+
+`npm run grunt:client` - Runs client-side rendering development environment.
+
+`npm run grunt:client:prod` - Runs client-side rendering production.
+
+#### Server-side rendering
+
+`npm run grunt:server` - Runs client-side rendering development environment.
+
+`npm run grunt:server:prod` - Runs client-side rendering production.
 
 `npm run server` - Runs the webpack build and server script(server-rendering).
+
+`npm run server:runDev` - Runs the express server on development.
+
+`npm run server:runProd` - Runs the express server on production.
 
 Access: `http://localhost:8000`
 
