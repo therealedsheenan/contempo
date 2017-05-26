@@ -3,9 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
-const commonConfig = require('../common');
-const Merge = require('webpack-merge');
-
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
