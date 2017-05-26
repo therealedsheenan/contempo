@@ -5,6 +5,7 @@ const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
+  // entry: ['./client/index.jsx'],
   output: {
     path: resolve(__dirname, './public'),
     filename: '[name].js',
@@ -47,12 +48,9 @@ module.exports = {
         }
       },
       {
-        test: /\.(eot|ttf|wav|mp3)$/,
+        test: /\.(png|svg|jpg|gif|eot|ttf|wav|mp3)$/,
         use: {
-          loader: 'file-loader',
-          query: {
-            name: '[hash].[ext]'
-          }
+          loader: 'file-loader'
         }
       }
     ]
