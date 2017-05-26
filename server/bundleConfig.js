@@ -22,13 +22,13 @@ module.exports = function (type) {
   if (type === 'DEV') {
     bundleConfig.entry = [CONFIG.entry];
     bundleConfig.devtool = 'inline-source-map';
+    bundleConfig.watch = true;
   } else {
     bundleConfig.entry = [CONFIG.entry];
     bundleConfig.devtool = 'cheap-source-map';
     bundleConfig.plugins.push(
       new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
+        minimize: true
       }),
       new webpack.DefinePlugin({
         'process.env': {

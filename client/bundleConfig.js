@@ -3,6 +3,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
+const commonConfig = require('../common');
+const Merge = require('webpack-merge');
+
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -16,7 +19,6 @@ const CONFIG = {
 module.exports = function (type) {
   const bundleConfig = {
     context: resolve(__dirname, '..'),
-    entry: [],
     plugins: [
       new HtmlWebpackPlugin({
         template: './client/index.html',
@@ -37,10 +39,7 @@ module.exports = function (type) {
     bundleConfig.devServer = {
       hot: true,
       contentBase: CONFIG.output,
-      historyApiFallback: true,
-      publicPath: '/',
-      port: CONFIG.port,
-      stats: 'errors-only'
+      publicPath: '/'
     };
   } else {
     bundleConfig.entry = [CONFIG.entry];
@@ -69,4 +68,5 @@ module.exports = function (type) {
     );
   }
   return bundleConfig;
+  // return Merge(commonConfig, bundleConfig);
 };
