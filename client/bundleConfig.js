@@ -46,10 +46,6 @@ module.exports = function (type) {
     bundleConfig.entry = [CONFIG.entry];
     bundleConfig.devtool = 'cheap-source-map';
     bundleConfig.plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-      }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production')
@@ -61,9 +57,16 @@ module.exports = function (type) {
         },
         sourceMap: true
       }),
-      new OfflinePlugin()
+      new OfflinePlugin({
+        relativePaths: false,
+        publicPath: '/',
+        caches: {
+          main: [':rest:']
+        },
+        safeToUseOptionalCaches: true,
+        AppCache: false
+      })
     );
   }
-
   return bundleConfig;
 };

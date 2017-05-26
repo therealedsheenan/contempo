@@ -41,7 +41,15 @@ module.exports = function (type) {
         },
         sourceMap: true
       }),
-      new OfflinePlugin()
+      new OfflinePlugin({
+        relativePaths: false,
+        publicPath: '/',
+        caches: {
+          main: [':rest:']
+        },
+        safeToUseOptionalCaches: true,
+        AppCache: false
+      })
     );
   }
   return bundleConfig;
