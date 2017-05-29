@@ -11,7 +11,6 @@ const serverConfig = require('./server/bundleConfig');
 const copyConfig = require('./tools/copy');
 const cleanConfig = require('./tools/clean');
 
-
 const CONFIG = {
   output: resolve(__dirname, './public'),
   port: 8000
@@ -21,7 +20,7 @@ module.exports = function (grunt) {
   const TARGET = grunt.option('target');
 
   if (TARGET === 'client') {
-    /* SERVER-SIDE RENDERING CONDFIGURATIONS */
+    /* CLIENT-SIDE RENDERING CONDFIGURATIONS */
 
     grunt.initConfig(
       Object.assign(
@@ -50,9 +49,9 @@ module.exports = function (grunt) {
 
     // register tasks
     grunt.registerTask('default', ['clean', 'copy', 'webpack-dev-server']);
-    grunt.registerTask('prod', ['clean', 'copy', 'webpack-dev-server']);
-  } else {
-    /* CLIENT-SIDE RENDERING CONDFIGURATIONS */
+    grunt.registerTask('prod', ['clean', 'copy', 'webpack:prod']);
+  } else if (TARGET === 'server') {
+    /* SERVER-SIDE RENDERING CONDFIGURATIONS */
 
     grunt.initConfig(
       Object.assign(
@@ -74,5 +73,20 @@ module.exports = function (grunt) {
     // register tasks
     grunt.registerTask('default', ['clean', 'copy', 'webpack:dev']);
     grunt.registerTask('prod', ['clean', 'copy', 'webpack:prod']);
+  } else {
+    // static clean and copy tasks
+    grunt.initConfig(
+      Object.assign(
+        {},
+        cleanConfig,
+        copyConfig
+      )
+    );
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
+    // register tasks
+    grunt.registerTask('assets', ['clean', 'copy']);
   }
 };
