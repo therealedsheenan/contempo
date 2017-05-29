@@ -18,7 +18,7 @@ module.exports = function bundle(type) {
     context: resolve(__dirname, '..'),
     plugins: [
       new HtmlWebpackPlugin({
-        template: './client/index.html',
+        template: './client/markup/index.html',
         inject: 'body'
       })
     ]
