@@ -16,7 +16,7 @@ const CONFIG = {
   port: 8000
 };
 
-module.exports = function (grunt) {
+module.exports = function gruntFile(grunt) {
   const TARGET = grunt.option('target');
 
   if (TARGET === 'client') {
