@@ -35,7 +35,7 @@ const routes = () => (
     />
     <Route
       exact
-      path="/style"
+      path="/"
       component={
         creasync({
           component: System.import('../containers/Home/HomeContainer'),

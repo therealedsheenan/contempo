@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const Merge = require('webpack-merge');
 
 // dependencies
-const bundleConfig = require('./common');
+const bundleConfig = require('./webpack');
 const clientConfig = require('./client/bundleConfig');
 const serverConfig = require('./server/bundleConfig');
 
@@ -20,7 +20,7 @@ module.exports = function gruntFile(grunt) {
   const TARGET = grunt.option('target');
 
   if (TARGET === 'client') {
-    /* CLIENT-SIDE RENDERING CONDFIGURATIONS */
+    /* CLIENT-SIDE RENDERING CONFIGURATIONS */
 
     grunt.initConfig(
       Object.assign(
