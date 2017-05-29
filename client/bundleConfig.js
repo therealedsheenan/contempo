@@ -65,5 +65,4 @@ module.exports = function bundle(type) {
     );
   }
   return bundleConfig;
-  // return Merge(commonConfig, bundleConfig);
 };
