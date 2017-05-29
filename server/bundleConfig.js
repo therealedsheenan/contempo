@@ -12,7 +12,7 @@ const CONFIG = {
   port: 8000
 };
 
-module.exports = function (type) {
+module.exports = function bundle(type) {
   const bundleConfig = {
     context: resolve(__dirname, '..'),
     entry: [],
