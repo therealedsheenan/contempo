@@ -1,18 +1,22 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const Merge = require('webpack-merge');
+const common = require('./common.js');
+const clientConfig = require('./client/bundleConfig');
+const serverConfig = require('./server/bundleConfig');
 
-module.exports = function (env,args) {
-  if (env === 'analyze-dev') {
-    const webpack = require('./webpack.dev.js');
-    webpack.plugins.push(
-      new BundleAnalyzerPlugin()
-    );
-    return webpack;
-  } else if (env === 'analyze-prod') {
-    const webpack = require('./webpack.prod.js');
-    webpack.plugins.push(
-      new BundleAnalyzerPlugin()
-    );
-    return webpack;
+// different webpack configurations on client and server
+// the webpack.common.js file is the common webpack config for all of the environment
+module.exports = function (env) {
+  switch (env) {
+    case 'server-dev':
+      return Merge(common, serverConfig('DEV'));
+    case 'server-prod':
+      return Merge(common, serverConfig('PROD'));
+    case 'client-dev':
+      return Merge(common, clientConfig('DEV'));
+    case 'client-prod':
+      return Merge(common, clientConfig('PROD'));
+    default:
+      return common;
   }
-  return require(`./webpack.${env}.js`);
 };
