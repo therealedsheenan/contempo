@@ -17,21 +17,22 @@ Using Grunt:
 
 #### Client-side rendering
 
-`npm run grunt:client` - Runs client-side rendering development environment.
+`npm run client:dev` - Runs client-side rendering development environment.
 
-`npm run grunt:client:prod` - Runs client-side rendering production.
+`npm run client:prod` - Runs client-side rendering production.
 
 #### Server-side rendering
 
-`npm run grunt:server` - Runs client-side rendering development environment.
+`npm run server:dev` - Runs client-side rendering development environment.
 
-`npm run grunt:server:prod` - Runs client-side rendering production.
+`npm run server:prod` - Runs client-side rendering production.
 
-`npm run server` - Runs the webpack build and server script(server-rendering).
+#### Assets
+`npm run assets`  - Runs the task that handles the assets
 
-`npm run server:runDev` - Runs the express server on development.
-
-`npm run server:runProd` - Runs the express server on production.
+#### Standards
+`npm start` - Start the dev environment on client
+`npm start:server` - Start the dev environment on server
 
 Access: `http://localhost:8000`
 
