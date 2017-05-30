@@ -14,7 +14,7 @@ exports[`Link changes the class when hovered 1`] = `
   <p
     className="kuUXHy"
   >
-    Hello there! Welcome to contempo.
+    Welcome to
   </p>
   <div>
     <img

@@ -1,5 +1,4 @@
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const webpack = require('webpack');
 const Merge = require('webpack-merge');
 
 const clientConfig = require('./tools/webpack/client-config');

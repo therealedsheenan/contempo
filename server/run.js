@@ -38,5 +38,6 @@ server.use((req, res) => {
   res.end();
 });
 
+/* eslint-disable no-console */
 console.log(`listening on ${port}`);
 server.listen(port);
