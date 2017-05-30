@@ -4,10 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
+const CONFIG = require('./constants');
+
 module.exports = {
-  // entry: ['./client/index.jsx'],
   output: {
-    path: resolve(__dirname, './public'),
+    path: CONFIG.output,
     filename: '[name].js',
     publicPath: '/',
     chunkFilename: '[id].[chunkhash].js'

@@ -1,21 +1,15 @@
-const { resolve } = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const CONFIG = require('./constants');
 
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const CONFIG = {
-  app: resolve('src'),
-  output: resolve(__dirname, './public'),
-  entry: './client/index.jsx',
-  port: 8000
-};
-
 module.exports = function bundle(type) {
   const bundleConfig = {
-    context: resolve(__dirname, '..'),
+    context: CONFIG.context,
     plugins: [
       new HtmlWebpackPlugin({
         template: './client/markup/index.html',
@@ -29,17 +23,19 @@ module.exports = function bundle(type) {
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${CONFIG.port}`,
       'webpack/hot/only-dev-server',
-      CONFIG.entry
+      CONFIG.clientEntry
     ];
     bundleConfig.devtool = 'inline-source-map';
     bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     bundleConfig.devServer = {
       hot: true,
       contentBase: CONFIG.output,
-      publicPath: '/'
+      port: CONFIG.port,
+      historyApiFallback: true,
+      stats: 'errors-only'
     };
   } else {
-    bundleConfig.entry = [CONFIG.entry];
+    bundleConfig.entry = [CONFIG.clientEntry];
     bundleConfig.devtool = 'cheap-source-map';
     bundleConfig.plugins.push(
       new webpack.DefinePlugin({
