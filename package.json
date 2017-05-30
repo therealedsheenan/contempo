@@ -116,8 +116,11 @@
     "webpack:server:prod": "webpack --env=server:prod",
     "assets": "grunt",
     "server": "cross-env node server/run.js",
-    "test": "NODE_ENV=test NODE_PATH=src/client jest",
-    "test:update": "cross-env NODE_ENV=test NODE_PATH=src/client jest --updateSnapshot",
-    "eslint": "cross-env NODE_ENV=test eslint --ext .jsx --ext .js src/client/**/**"
+    "jest:update": "cross-env NODE_ENV=test NODE_PATH=src/client jest --updateSnapshot",
+    "jest": "NODE_ENV=test NODE_PATH=src/client jest",
+    "lint:src": "NODE_ENV=test cross-env eslint src",
+    "lint:client": "NODE_ENV=test cross-env eslint client",
+    "lint:server": "NODE_ENV=test cross-env eslint server",
+    "test": "cross-env concurrently \"npm run jest\" \"npm run lint:src\" \"npm run lint:client\" \"npm run lint:server\""
   }
 }
