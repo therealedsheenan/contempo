@@ -11,10 +11,6 @@ Here are the following commands to install the environment.
 - Make sure you have [YARN](https://yarnpkg.com/) installed in your system.
 - To install yarn run `yarn install`
 
-#### Running various environments:
-
-Using Grunt:
-
 #### Client-side rendering
 
 `npm run client:dev` - Runs client-side rendering development environment.
@@ -27,12 +23,9 @@ Using Grunt:
 
 `npm run server:prod` - Runs client-side rendering production.
 
-#### Assets
+#### Using Grunt Assets
 `npm run assets`  - Runs the task that handles the assets
 
-#### Standards
-`npm start` - Start the dev environment on client
-`npm start:server` - Start the dev environment on server
 
 Access: `http://localhost:8000`
 
@@ -77,7 +70,7 @@ There are methods in implementing asynchronous routes, lazy loading components a
 
 1.) Asynchronous Component
 
-Component Directory:  `src/client/components/AsyncComponent`
+Component Directory:  `src/components/AsyncComponent`
 
 ```
   import { asyncComponent } from 'react-async-component';
@@ -90,7 +83,7 @@ Component Directory:  `src/client/components/AsyncComponent`
 Note that you have to separately import the component to be asynchronously loaded.
 
 2.) Asynchronous routes
-Component Directory:  `src/client/components/AsyncComponent`
+Component Directory:  `src/components/AsyncComponent`
 
 ```
   import { asyncComponent } from 'react-async-component';
@@ -106,7 +99,7 @@ Component Directory:  `src/client/components/AsyncComponent`
 ```
 
 3.) Bundle loader - The same as async routes but this uses the bundle-loader plugin.
-Component Directory:  `src/client/components/BundleLoader/BundleLoader`
+Component Directory:  `src/components/BundleLoader/BundleLoader`
 
 ```
   import { Route } from 'react-router-dom';
@@ -123,7 +116,7 @@ Component Directory:  `src/client/components/BundleLoader/BundleLoader`
 
 ## Coding Guideline:
 
-### Client Directory :`src/client`
+### Main source Directory :`./src/`
 
 Here are the descriptions of each folders:
 
@@ -150,13 +143,3 @@ since you can basically add an inline `styled-component` code from here.
 This directory is different from the components directory's `styles.js`. `styles.js` from the components
 directory are only specific to the react-presentational styles of the current directory.
 
-`index.html` - The main html file to be generated.
-
-`App.jsx and index.jsx` - preliminary configuration for this react project.
-
-
-### Server Directory :`src/server`.
-
-index.js - server-rendering script.
-
-index.html - The main html file to be rendered.
