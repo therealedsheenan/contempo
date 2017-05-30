@@ -4,4 +4,3 @@ node_js:
 before_script:
   - npm run jest:update
   - npm run test
-  - npm run eslint
