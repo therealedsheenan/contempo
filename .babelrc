@@ -1,20 +1,19 @@
 {
   "presets": [
-    "react",
-    ["env", {
-      "targets": {
-        "browsers": "last 2 versions"
-      },
-      "loose": true,
-      "modules": false
-    }]
+    ["es2015", {"modules": false}],
+    "stage-0",
+    [
+      "latest", {
+        "es2015": {
+          "modules": false
+        }
+      }
+    ],
+    "react"
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "babel-plugin-syntax-dynamic-import",
-    "babel-plugin-dynamic-import-webpack",
-    "babel-plugin-transform-decorators-legacy",
-    "babel-plugin-transform-class-properties"
+    "syntax-dynamic-import"
   ],
   "env": {
     "server": {

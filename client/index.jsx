@@ -6,42 +6,41 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './ClientApp';
 
-if (process.env.NODE_ENV === 'production') {
-  // production setup
+// if (process.env.NODE_ENV === 'production') {
+//   // production setup
+//   ReactDOM.render(
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>,
+//     document.getElementById('root')
+//   );
+//
+//   // service worker
+//   require('offline-plugin/runtime').install();
+// }
+// const Perf = require('react-addons-perf');
+
+// development setup with HMR
+const render = Component => {
   ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <AppContainer>
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
+    </AppContainer>,
     document.getElementById('root')
   );
+};
 
-  // service worker
-  require('offline-plugin/runtime').install();
-} else {
-  const Perf = require('react-addons-perf');
+render(App);
 
-  // development setup with HMR
-  const render = Component => {
-    ReactDOM.render(
-      <AppContainer>
-        <BrowserRouter>
-          <Component />
-        </BrowserRouter>
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  };
-
-  render(App);
-
-  // Hot Module Replacement API
-  if (module.hot) {
-    module.hot.accept('./ClientApp', () => {
-      render(App);
-    });
-  }
-
-  // after App import
-  window.Perf = Perf;
-  Perf.start();
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./ClientApp', () => {
+    render(App);
+  });
 }
+
+// after App import
+// window.Perf = Perf;
+// Perf.start();
