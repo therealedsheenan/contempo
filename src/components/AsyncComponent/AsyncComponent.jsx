@@ -1,14 +1,13 @@
-/* eslint-disable react/prop-types */
+// @flow
 
 import React from 'react';
 
 import { asyncComponent } from 'react-async-component';
 
-const Async = route =>
+const Async = (props: { route: Function }) =>
   asyncComponent({
-    resolve: () => route,
+    resolve: () => props.route,
     LoadingComponent: () => <h1>Loading...</h1>,
-    ErrorComponent: ({ error }) => <div>{error.message}</div>
+    ErrorComponent: error => <div>{error.message}</div>
   });
-
 export default Async;

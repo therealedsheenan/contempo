@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestGreeting } from '../../redux/greeting/actions';
 
@@ -10,15 +11,15 @@ class HomeContainer extends React.Component {
     this.props.requestGreeting();
   }
 
+  props: {
+    requestGreeting: Function,
+    greeting: Object
+  };
+
   render() {
     return <GreetingComponent message={this.props.greeting.content} />;
   }
 }
-
-HomeContainer.propTypes = {
-  requestGreeting: PropTypes.func.isRequired,
-  greeting: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
-};
 
 const mapStateToProps = ({ greetingReducer }) => {
   const { fetching, greeting } = greetingReducer;
