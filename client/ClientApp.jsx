@@ -13,5 +13,5 @@ const App = () => (
     {routes()}
   </Provider>
 );
-
-export default App;
+;
+export default App

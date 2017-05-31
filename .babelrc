@@ -16,10 +16,10 @@
     "syntax-dynamic-import"
   ],
   "env": {
-    "server": {
+    "development": {
       "plugins": ["transform-es2015-modules-commonjs"]
     },
-    "development": {
+    "server": {
       "plugins": ["transform-es2015-modules-commonjs"]
     },
     "test": {

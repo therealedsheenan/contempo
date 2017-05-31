@@ -14,9 +14,10 @@ module.exports = function bundle(type) {
   };
 
   if (type === 'DEV') {
-    bundleConfig.entry = [CONFIG.serverEntry];
+    bundleConfig.entry = ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', CONFIG.serverEntry];
     bundleConfig.devtool = 'inline-source-map';
-    bundleConfig.watch = true;
+    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+    bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
     bundleConfig.entry = [CONFIG.serverEntry];
     bundleConfig.devtool = 'cheap-source-map';

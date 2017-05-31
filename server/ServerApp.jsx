@@ -5,12 +5,14 @@ import { Provider } from 'react-redux';
 // import routes from './config/routes';
 import routes from '../src/config/serverRoutes';
 import store from '../src/config/store';
-
+//
 if (global) global.System = { import() {} };
 
 const App = () => (
   <Provider store={store}>
+    <div>
     {routes()}
+    </div>
   </Provider>
 );
 
