@@ -17,25 +17,31 @@ if (process.env.NODE_ENV === 'production') {
 
   // service worker
   require('offline-plugin/runtime').install();
-}
+} else {
+  const Perf = require('react-addons-perf');
 
-// development setup with HMR
-const render = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <BrowserRouter>
-        <Component />
-      </BrowserRouter>
-    </AppContainer>,
-    document.getElementById('root')
-  );
-};
+  // development setup with HMR
+  const render = Component => {
+    ReactDOM.render(
+      <AppContainer>
+        <BrowserRouter>
+          <Component />
+        </BrowserRouter>
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  };
 
-render(App);
+  render(App);
 
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./ClientApp', () => {
-    render(App);
-  });
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept('./ClientApp', () => {
+      render(App);
+    });
+  }
+
+  // after App import
+  window.Perf = Perf;
+  Perf.start();
 }
