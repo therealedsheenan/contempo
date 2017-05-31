@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 class AsyncRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +9,7 @@ class AsyncRoute extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.loadingPromise.then((module) => {
+    this.props.loadingPromise.then(module => {
       this.component = module.default;
       this.setState({ loaded: true });
     });
@@ -30,10 +29,7 @@ AsyncRoute.propTypes = {
     location: PropTypes.object,
     match: PropTypes.object
   }).isRequired,
-  loadingPromise: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func
-  ]).isRequired
+  loadingPromise: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired
 };
 
 export default AsyncRoute;

@@ -17,10 +17,7 @@ class HomeContainer extends React.Component {
 
 HomeContainer.propTypes = {
   requestGreeting: PropTypes.func.isRequired,
-  greeting: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired
+  greeting: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
 };
 
 const mapStateToProps = ({ greetingReducer }) => {
@@ -36,7 +33,4 @@ const mapDispatchToProps = dispatch => ({
   requestGreeting: () => dispatch(requestGreeting())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

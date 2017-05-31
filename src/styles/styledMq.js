@@ -1,9 +1,5 @@
 import { css } from 'styled-components';
-import {
-  mobile,
-  tablet,
-  desktop
-} from '../styles/mq';
+import { mobile, tablet, desktop } from '../styles/mq';
 
 export const styledMobile = {
   handheld: (...args) => css`

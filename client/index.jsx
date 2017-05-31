@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // development setup with HMR
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <BrowserRouter>

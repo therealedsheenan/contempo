@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route } from 'react-router-dom';
 import creasync from 'creasync';
@@ -11,13 +10,9 @@ import Navigation from '../components/Navigation/NavigationComponent';
 
 if (global) global.System = { import() {} };
 
-const defaultError = () => (
-  <div>Something went wrong...</div>
-);
+const defaultError = () => <div>Something went wrong...</div>;
 
-const defaultLoading = () => (
-  <div>Component is loading...</div>
-);
+const defaultLoading = () => <div>Component is loading...</div>;
 
 const routes = () => (
   <Root>
@@ -25,24 +20,20 @@ const routes = () => (
     <Route
       exact
       path="/style"
-      component={
-        creasync({
-          component: System.import('../containers/Styleguide/StyleguideContainer'),
-          error: () => (<defaultError />),
-          loading: () => (<defaultLoading />)
-        })
-      }
+      component={creasync({
+        component: System.import('../containers/Styleguide/StyleguideContainer'),
+        error: () => <defaultError />,
+        loading: () => <defaultLoading />
+      })}
     />
     <Route
       exact
       path="/"
-      component={
-        creasync({
-          component: System.import('../containers/Home/HomeContainer'),
-          error: () => (<defaultError />),
-          loading: () => (<defaultLoading />)
-        })
-      }
+      component={creasync({
+        component: System.import('../containers/Home/HomeContainer'),
+        error: () => <defaultError />,
+        loading: () => <defaultLoading />
+      })}
     />
   </Root>
 );

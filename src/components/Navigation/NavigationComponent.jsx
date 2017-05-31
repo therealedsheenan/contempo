@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  StyledLink,
-  Navigation
-} from './styles';
+import { StyledLink, Navigation } from './styles';
 
 const NavigationComponent = () => (
   <Navigation>

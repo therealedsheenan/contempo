@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Title,
-  SubTitle,
-  Wrapper
-} from './styles';
-
+import { Title, SubTitle, Wrapper } from './styles';
 
 const GreetingComponent = props => (
   <Wrapper>
@@ -16,7 +11,7 @@ const GreetingComponent = props => (
       <img style={{ width: '100%' }} src="./assets/images/contempo.png" alt="" />
     </div>
   </Wrapper>
-  );
+);
 
 GreetingComponent.defaultProps = {
   message: 'No message passed.'

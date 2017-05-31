@@ -10,16 +10,13 @@ import '../../styles/base';
 const Root = props => (
   <ThemeProvider theme={theme}>
     <main>
-      { props.children }
+      {props.children}
     </main>
   </ThemeProvider>
 );
 
 Root.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
 };
 
 export default Root;

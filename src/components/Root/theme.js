@@ -1,7 +1,4 @@
-import {
-  primary,
-  secondary
-} from '../../styles/color';
+import { primary, secondary } from '../../styles/color';
 
 const theme = {
   primary,

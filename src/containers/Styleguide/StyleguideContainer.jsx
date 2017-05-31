@@ -4,6 +4,6 @@ const StyleguideContainer = () => (
   <div className="Styleguide">
     <p>this is the styleguide</p>
   </div>
-  );
+);
 
 export default StyleguideContainer;

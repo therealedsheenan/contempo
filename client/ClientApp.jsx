@@ -10,7 +10,7 @@ if (global) global.System = { import() {} };
 
 const App = () => (
   <Provider store={store}>
-    { routes() }
+    {routes()}
   </Provider>
 );
 
