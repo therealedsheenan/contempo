@@ -1,4 +1,5 @@
 import React from 'react';
+import { pure } from 'recompose';
 
 import { StyledLink, Navigation } from './styles';
 
@@ -8,4 +9,4 @@ const NavigationComponent = () => (
   </Navigation>
 );
 
-export default NavigationComponent;
+export default pure(NavigationComponent);

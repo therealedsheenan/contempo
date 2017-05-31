@@ -3,7 +3,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestGreeting } from '../../redux/greeting/actions';
-
 import GreetingComponent from '../../components/Greeting/GreetingComponent';
 
 class HomeContainer extends React.Component {
