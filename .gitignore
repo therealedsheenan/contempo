@@ -6,4 +6,4 @@ partials
 public/*
 npm-debug.log.*
 .idea/*
-flow-typed/npm/*
+flow-typed/npm/**/*

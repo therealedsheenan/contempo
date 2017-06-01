@@ -126,6 +126,6 @@
     "lint": "eslint **/*.{js,jsx} --quiet",
     "flow": "./node_modules/.bin/flow",
     "format": "prettier --list-different --single-quote --print-width=120 webpack.config.js \"./src/**/*.{js,jsx}\" \"./client/**/*.{js,jsx}\" \"./server/**/*.{js,jsx}\"",
-    "test": "cross-env concurrently \"npm run jest\" \"npm run lint\" \"npm run format\""
+    "test": "cross-env concurrently \"npm run jest\" \"npm run lint\" \"npm run format\" \"npm run flow\""
   }
 }
