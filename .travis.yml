@@ -4,4 +4,9 @@ node_js:
 before_script:
   - flow-typed install
   - npm run jest:update
-  - npm run test
+  - npm run jest
+  - npm run format
+  - flow src/
+  - flow server/
+  - flow client/
+  - flow tools/
