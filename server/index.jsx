@@ -1,7 +1,8 @@
 /* eslint global-require: "off"*/
+// @flow
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 // main app content
@@ -11,9 +12,18 @@ if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install();
 }
 
-ReactDOM.render(
-  <BrowserRouter>
-    <ServerApp />
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+const renderApp = () => {
+  render(
+    <BrowserRouter key={Math.random()}>
+      <ServerApp />
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
+};
+renderApp();
+
+if (module.hot) {
+  module.hot.accept('./ServerApp', () => {
+    renderApp();
+  });
+}
