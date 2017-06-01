@@ -1,9 +1,11 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/nock/*
 
 [include]
 
 [libs]
-;styled-components
+styled-components
+nock
 
 [options]

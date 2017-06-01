@@ -20,7 +20,7 @@ class HomeContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ greetingReducer }) => {
+const mapStateToProps = ({ greetingReducer }: { greetingReducer: Object }) => {
   const { fetching, greeting } = greetingReducer;
 
   return {
@@ -29,7 +29,7 @@ const mapStateToProps = ({ greetingReducer }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   requestGreeting: () => dispatch(requestGreeting())
 });
 

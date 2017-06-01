@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 
 import { asyncComponent } from 'react-async-component';

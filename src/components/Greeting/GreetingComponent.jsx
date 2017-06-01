@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Title, SubTitle, Wrapper } from './styles';
 

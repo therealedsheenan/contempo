@@ -1,3 +1,5 @@
+// @flow
+
 import { primary, secondary } from '../../styles/color';
 
 const theme = {

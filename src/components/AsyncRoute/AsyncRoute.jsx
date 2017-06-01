@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 
 class AsyncRoute extends React.Component {
