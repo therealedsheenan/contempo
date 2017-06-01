@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { AppContaineimport { AppContainer } from 'react-hot-loader';r } from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader';
 import App from './ClientApp';
 
 if (process.env.NODE_ENV === 'production') {
