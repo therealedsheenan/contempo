@@ -15,6 +15,6 @@ const GreetingComponent = ({ message }: { message?: string }) => (
 
 GreetingComponent.defaultProps = {
   message: 'No message passed'
-}
+};
 
 export default GreetingComponent;

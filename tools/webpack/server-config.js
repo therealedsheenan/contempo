@@ -17,7 +17,7 @@ module.exports = function bundle(type) {
     bundleConfig.entry = ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', CONFIG.serverEntry];
     bundleConfig.devtool = 'inline-source-map';
     bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-    bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
+    // bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
     bundleConfig.entry = [CONFIG.serverEntry];
     bundleConfig.devtool = 'cheap-source-map';

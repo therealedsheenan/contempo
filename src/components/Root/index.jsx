@@ -10,7 +10,7 @@ import theme from './theme';
 // reset styles
 import '../../styles/base';
 
-const Root = (props: {children: Object}) => (
+const Root = (props: { children: Object }) => (
   <ThemeProvider theme={theme}>
     <main>
       {props.children}

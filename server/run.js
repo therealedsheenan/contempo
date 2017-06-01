@@ -27,11 +27,10 @@ if (process.env.NODE_ENV === 'development') {
     webpackDevMiddleware(compiler, {
       publicPath: commonConfig.output.publicPath
     })
-  )
+  );
 
   server.use(webpackHotMiddleware(compiler));
 }
-
 
 server.use('/', express.static('./public'));
 server.use('/assets', express.static('./public/assets'));

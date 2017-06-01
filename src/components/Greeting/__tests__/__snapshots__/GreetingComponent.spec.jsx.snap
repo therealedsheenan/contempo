@@ -9,7 +9,6 @@ exports[`Link changes the class when hovered 1`] = `
   >
     Good 
     No message passed
-    !
   </h1>
   <p
     className="sc-htpNat eSckKf"
