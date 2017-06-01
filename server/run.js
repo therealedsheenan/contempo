@@ -1,7 +1,3 @@
-// require('babel-core/register')({
-//   // presets: ['es2015', 'react']
-//   presets: ['es2015', 'stage-0', 'latest', 'react']
-// });
 require('babel-register');
 
 const express = require('express');
@@ -19,8 +15,6 @@ const commonConfig = require('../tools/webpack/common-config');
 const serverConfig = require('../tools/webpack/server-config');
 const App = require('./ServerApp.jsx').default;
 
-const compiler = webpack(Merge(commonConfig, serverConfig('DEV')));
-
 const port = 8000;
 const baseTemplate = fs.readFileSync('./server/markup/index.html');
 const template = _.template(baseTemplate);
@@ -28,6 +22,7 @@ const template = _.template(baseTemplate);
 const server = express();
 
 if (process.env.NODE_ENV === 'development') {
+  const compiler = webpack(Merge(commonConfig, serverConfig('DEV')));
   server.use(
     webpackDevMiddleware(compiler, {
       publicPath: commonConfig.output.publicPath
@@ -36,6 +31,7 @@ if (process.env.NODE_ENV === 'development') {
 
   server.use(webpackHotMiddleware(compiler));
 }
+
 
 server.use('/', express.static('./public'));
 server.use('/assets', express.static('./public/assets'));
