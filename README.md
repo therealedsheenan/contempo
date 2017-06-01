@@ -19,9 +19,11 @@ Here are the following commands to install the environment.
 
 #### Server-side rendering
 
-`npm run server:dev` - Runs client-side rendering development environment.
+`npm run server:dev` - Runs server-side rendering development environment.
 
-`npm run server:prod` - Runs client-side rendering production.
+`npm run server:prod` - Runs webpack in production.
+
+`npm run server` - Runs the node server.
 
 #### Using Grunt Assets
 `npm run assets`  - Runs the task that handles the assets
@@ -31,6 +33,18 @@ Access: `http://localhost:8000`
 
 `npm test` - Runs the jest testing.
 `npm run eslint` - Runs the eslint.
+
+#### Flow types
+`npm run flow` - Runs flow type checker 
+
+#### Formatting
+`npm run format` - Runs the prettier formatter
+
+#### Linting
+`npm run lint` - Runs the linter
+
+#### Test
+`npm test` - Runs the test suite
 
 #### Asynchronous routes / components
 Asynchronously load routes or components by using the async component:

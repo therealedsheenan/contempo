@@ -1,0 +1,12 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/nock/*
+<PROJECT_ROOT>/flow-typed/npm/*
+
+[include]
+
+[libs]
+styled-components
+nock
+
+[options]

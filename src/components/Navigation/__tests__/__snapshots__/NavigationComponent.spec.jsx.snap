@@ -2,10 +2,10 @@
 
 exports[`Navigation existence 1`] = `
 <nav
-  className="iPrTgP"
+  className="sc-bdVaJa hgLOpN"
 >
   <a
-    className="jHEcRl"
+    className="sc-bwzfXH etlpSL"
     href="/"
     onClick={[Function]}
   >
@@ -13,7 +13,7 @@ exports[`Navigation existence 1`] = `
   </a>
    | 
   <a
-    className="jHEcRl"
+    className="sc-bwzfXH etlpSL"
     href="/style"
     onClick={[Function]}
   >

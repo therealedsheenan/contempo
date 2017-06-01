@@ -1,25 +1,31 @@
 {
   "presets": [
     ["es2015", {"modules": false}],
-    "stage-0",
-    [
-      "latest", {
-        "es2015": {
-          "modules": false
-        }
-      }
-    ],
+    ["env", {
+      "targets": {
+        "browsers": "last 2 versions"
+      },
+      "loose": true,
+      "modules": false
+    }],
     "react"
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "dynamic-import-webpack",
+    "transform-class-properties",
+    "transform-decorators-legacy"
   ],
   "env": {
-    "start": {
-      "presets": [
-        "react-hmre"
-      ]
+    "development": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "production": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "server": {
+      "plugins": ["transform-es2015-modules-commonjs"]
     },
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]

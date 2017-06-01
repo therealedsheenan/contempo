@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Provider } from 'react-redux';
 
@@ -6,11 +8,9 @@ import { Provider } from 'react-redux';
 import routes from '../src/config/serverRoutes';
 import store from '../src/config/store';
 
-if (global) global.System = { import() {} };
-
 const App = () => (
   <Provider store={store}>
-    { routes() }
+    {routes()}
   </Provider>
 );
 

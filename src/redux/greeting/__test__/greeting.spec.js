@@ -4,10 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 // modules
-import {
-  requestGreeting,
-  greetingEpic
-} from '../actions';
+import { requestGreeting, greetingEpic } from '../actions';
 
 import greetingReducer from '../reducer';
 import * as type from '../types';
@@ -27,8 +24,7 @@ describe('Greeting Actions', () => {
     const expectedAction = {
       type: type.GET_GREETING
     };
-    expect(requestGreeting())
-    .toEqual(expectedAction);
+    expect(requestGreeting()).toEqual(expectedAction);
   });
 });
 
@@ -44,22 +40,14 @@ describe('Greeting reducer', () => {
   });
 
   it('Should show the initial state', () => {
-    expect(
-      greetingReducer(
-        undefined,
-        {}
-      )
-    ).toEqual(initialState);
+    expect(greetingReducer(undefined, {})).toEqual(initialState);
   });
 
   it('Should show request a greeting', () => {
-    expect(
-      greetingReducer(
-        initialState,
-        requestGreeting())).toEqual({
-          fetching: true,
-          greeting: ''
-        });
+    expect(greetingReducer(initialState, requestGreeting())).toEqual({
+      fetching: true,
+      greeting: ''
+    });
   });
 
   it('Should show the successful greeting', () => {
@@ -74,9 +62,6 @@ describe('Greeting reducer', () => {
     store.dispatch(requestGreeting());
     store.dispatch(mockGreeting);
 
-    expect(store.getActions()).toEqual([
-      requestGreeting(),
-      mockGreeting
-    ]);
+    expect(store.getActions()).toEqual([requestGreeting(), mockGreeting]);
   });
 });

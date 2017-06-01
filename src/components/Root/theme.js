@@ -1,7 +1,6 @@
-import {
-  primary,
-  secondary
-} from '../../styles/color';
+// @flow
+
+import { primary, secondary } from '../../styles/color';
 
 const theme = {
   primary,

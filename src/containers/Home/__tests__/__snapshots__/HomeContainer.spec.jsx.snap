@@ -2,17 +2,16 @@
 
 exports[`Home existence 1`] = `
 <div
-  className="cklcwZ"
+  className="sc-bdVaJa byrdwB"
 >
   <h1
-    className="eytrmd"
+    className="sc-bwzfXH jWCxdT"
   >
     Good 
-    No message passed.
-    !
+    No message passed
   </h1>
   <p
-    className="kuUXHy"
+    className="sc-htpNat eSckKf"
   >
     Welcome to
   </p>

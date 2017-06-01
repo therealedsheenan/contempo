@@ -6,11 +6,13 @@ import HomeContainer from '../HomeContainer';
 import store from '../../../config/store';
 
 test('Home existence', () => {
-  const component = renderer.create(
-    <Provider store={store}>
-      <HomeContainer />
-    </Provider>
-  ).toJSON();
+  const component = renderer
+    .create(
+      <Provider store={store}>
+        <HomeContainer />
+      </Provider>
+    )
+    .toJSON();
 
   // correct home component
   expect(component).toMatchSnapshot();

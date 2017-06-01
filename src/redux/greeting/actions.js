@@ -11,7 +11,7 @@ const getGreetingError = error => ({
   error
 });
 
-const getGreetingSuccess = (payload) => {
+const getGreetingSuccess = payload => {
   const hr = new Date().getHours();
   let greeting;
 

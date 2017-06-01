@@ -1,5 +1,8 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
+
+// $FlowFixMe
 import { ThemeProvider } from 'styled-components';
 
 import theme from './theme';
@@ -7,19 +10,12 @@ import theme from './theme';
 // reset styles
 import '../../styles/base';
 
-const Root = props => (
+const Root = (props: { children: Object }) => (
   <ThemeProvider theme={theme}>
     <main>
-      { props.children }
+      {props.children}
     </main>
   </ThemeProvider>
 );
-
-Root.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
 
 export default Root;

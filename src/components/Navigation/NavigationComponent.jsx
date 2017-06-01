@@ -1,9 +1,9 @@
-import React from 'react';
+// @flow
 
-import {
-  StyledLink,
-  Navigation
-} from './styles';
+import React from 'react';
+import { pure } from 'recompose';
+
+import { StyledLink, Navigation } from './styles';
 
 const NavigationComponent = () => (
   <Navigation>
@@ -11,4 +11,4 @@ const NavigationComponent = () => (
   </Navigation>
 );
 
-export default NavigationComponent;
+export default pure(NavigationComponent);

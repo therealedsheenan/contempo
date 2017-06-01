@@ -18,10 +18,7 @@ const store = createStore(
   }),
   compose(
     applyMiddleware(epicMiddleWare),
-    typeof window === 'object' &&
-      typeof window.devToolsExtension !== 'undefined'
-      ? window.devToolsExtension()
-      : f => f
+    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
   )
 );
 

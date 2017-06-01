@@ -3,4 +3,7 @@ node_js:
   - "6"
 before_script:
   - npm run jest:update
-  - npm run test
+  - npm run jest
+
+cache:
+  yarn: true

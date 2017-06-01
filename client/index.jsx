@@ -1,4 +1,5 @@
 /* eslint global-require: "off"*/
+// @flow
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -19,8 +20,10 @@ if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install();
 }
 
+const Perf = require('react-addons-perf');
+
 // development setup with HMR
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <BrowserRouter>
@@ -39,3 +42,7 @@ if (module.hot) {
     render(App);
   });
 }
+
+// after App import
+window.Perf = Perf;
+Perf.start();
