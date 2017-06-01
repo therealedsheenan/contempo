@@ -34,6 +34,18 @@ Access: `http://localhost:8000`
 `npm test` - Runs the jest testing.
 `npm run eslint` - Runs the eslint.
 
+#### Flow types
+`npm run flow` - Runs flow type checker 
+
+#### Formatting
+`npm run format` - Runs the prettier formatter
+
+#### Linting
+`npm run lint` - Runs the linter
+
+#### Test
+`npm test` - Runs the test suite
+
 #### Asynchronous routes / components
 Asynchronously load routes or components by using the async component:
 
