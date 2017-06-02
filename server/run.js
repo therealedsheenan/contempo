@@ -3,7 +3,7 @@ require('babel-register');
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const { StaticRouter } = require('react-router');
+const { StaticRouter } = require('react-router-dom');
 const _ = require('lodash');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');

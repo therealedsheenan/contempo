@@ -26,7 +26,10 @@ module.exports = function bundle(type) {
       CONFIG.clientEntry
     ];
     bundleConfig.devtool = 'inline-source-map';
-    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+    bundleConfig.plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin()
+    );
     bundleConfig.devServer = {
       hot: true,
       contentBase: CONFIG.output,
