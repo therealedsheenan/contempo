@@ -14,7 +14,11 @@ module.exports = {
     chunkFilename: '[id].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat'
+    }
   },
   stats: {
     colors: true,
@@ -28,7 +32,8 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
         include: [
-          resolve('')
+          resolve(''),
+          resolve('node_modules/preact-compat/src')
         ]
       },
       {
@@ -58,7 +63,6 @@ module.exports = {
   },
   plugins: [
     new ProgressBarPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].css'),
     new InlineManifestWebpackPlugin()
