@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install();
 }
 
-const Perf = require('react-addons-perf');
+// const Perf = require('react-addons-perf');
 
 // development setup with HMR
 const render = Component => {
@@ -44,5 +44,5 @@ if (module.hot) {
 }
 
 // after App import
-window.Perf = Perf;
-Perf.start();
+// window.Perf = Perf;
+// Perf.start();

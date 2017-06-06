@@ -6,7 +6,7 @@ import { Title, SubTitle, Wrapper } from './styles';
 const GreetingComponent = ({ message }: { message?: string }) => (
   <Wrapper>
     <Title>Good {message}</Title>
-    <SubTitle>Welcome to</SubTitle>
+    <SubTitle>Welcome to122</SubTitle>
     <div>
       <img style={{ width: '100%' }} src="./assets/images/contempo.png" alt="" />
     </div>
