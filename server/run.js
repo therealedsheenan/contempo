@@ -1,3 +1,5 @@
+// @flow
+
 require('babel-register');
 
 const express = require('express');
@@ -14,9 +16,11 @@ const Merge = require('webpack-merge');
 const commonConfig = require('../tools/webpack/common-config');
 const serverConfig = require('../tools/webpack/server-config');
 const App = require('./ServerApp.jsx').default;
+const CONFIG = require('../tools/webpack/constants');
 
-const port = 8000;
+const port = CONFIG.port;
 const baseTemplate = fs.readFileSync('./server/markup/index.html');
+// $FlowFixMe
 const template = _.template(baseTemplate);
 
 const server = express();
@@ -35,6 +39,7 @@ if (process.env.NODE_ENV === 'development') {
 server.use('/', express.static('./public'));
 server.use('/assets', express.static('./public/assets'));
 
+// $FlowFixMe
 server.use((req, res) => {
   const context = {};
 

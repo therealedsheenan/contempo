@@ -15,7 +15,8 @@
     "syntax-dynamic-import",
     "dynamic-import-webpack",
     "transform-class-properties",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "styled-components"
   ],
   "env": {
     "development": {

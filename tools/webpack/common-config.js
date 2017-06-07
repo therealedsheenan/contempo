@@ -14,12 +14,7 @@ module.exports = {
     chunkFilename: '[id].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-    alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
-      'preact-compat': 'preact-compat/dist/preact-compat'
-    }
+    extensions: ['.js', '.jsx', '.json']
   },
   stats: {
     colors: true,

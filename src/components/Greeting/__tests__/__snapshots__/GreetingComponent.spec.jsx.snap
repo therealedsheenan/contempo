@@ -2,18 +2,18 @@
 
 exports[`Link changes the class when hovered 1`] = `
 <div
-  className="sc-bdVaJa byrdwB"
+  className="styles__Wrapper-dhcWqx fXONQy"
 >
   <h1
-    className="sc-bwzfXH jWCxdT"
+    className="styles__Title-kJmJYc kAsCYU"
   >
     Good 
-    No message passed
+    Day!
   </h1>
   <p
-    className="sc-htpNat eSckKf"
+    className="styles__SubTitle-geuJrq dzWtlk"
   >
-    Welcome to122
+    Welcome to
   </p>
   <div>
     <img
