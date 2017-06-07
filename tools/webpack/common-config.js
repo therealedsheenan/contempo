@@ -28,8 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
         include: [
-          resolve(''),
-          resolve('node_modules/preact-compat/src')
+          resolve('')
         ]
       },
       {

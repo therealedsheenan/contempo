@@ -39,7 +39,7 @@ module.exports = function bundle(type) {
     };
   } else {
     bundleConfig.entry = [CONFIG.clientEntry];
-    bundleConfig.devtool = 'cheap-source-map';
+    bundleConfig.
     bundleConfig.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
