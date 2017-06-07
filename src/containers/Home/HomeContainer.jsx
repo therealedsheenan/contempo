@@ -7,11 +7,11 @@ import GreetingComponent from '../../components/Greeting/GreetingComponent';
 
 class HomeContainer extends React.Component {
   componentWillMount() {
-    this.props.requestGreeting();
+    // this.props.requestGreeting();
   }
 
   props: {
-    requestGreeting: Function,
+    // requestGreeting: Function,
     greeting: Object
   };
 

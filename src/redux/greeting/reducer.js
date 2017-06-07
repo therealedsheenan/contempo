@@ -1,3 +1,5 @@
+// @flow
+
 import * as type from './types';
 
 const initialState = {
@@ -5,7 +7,7 @@ const initialState = {
   fetching: true
 };
 
-const greetingReducer = (state = initialState, action) => {
+const greetingReducer = (state: Object = initialState, action: Object) => {
   switch (action.type) {
     case type.GET_GREETING:
       return Object.assign({}, state, {

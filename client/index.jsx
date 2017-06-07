@@ -1,11 +1,12 @@
-/* eslint global-require: "off"*/
 // @flow
+
+/* eslint global-require: "off"*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './ClientApp';
+import App from './App';
 
 if (process.env.NODE_ENV === 'production') {
   // production setup
@@ -19,8 +20,6 @@ if (process.env.NODE_ENV === 'production') {
   // service worker
   require('offline-plugin/runtime').install();
 }
-
-// const Perf = require('react-addons-perf');
 
 // development setup with HMR
 const render = Component => {
@@ -38,11 +37,7 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./ClientApp', () => {
+  module.hot.accept('./App', () => {
     render(App);
   });
 }
-
-// after App import
-// window.Perf = Perf;
-// Perf.start();
