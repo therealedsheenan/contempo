@@ -1,3 +1,5 @@
+// @flow
+
 const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -27,9 +29,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-        include: [
-          resolve('')
-        ]
+        include: [resolve('')]
       },
       {
         test: /\.scss$/,

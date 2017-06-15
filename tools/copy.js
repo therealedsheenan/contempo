@@ -1,3 +1,5 @@
+// @flow
+
 // export copy configurations
 
 module.exports = {

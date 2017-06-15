@@ -1,3 +1,5 @@
+// @flow
+
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
