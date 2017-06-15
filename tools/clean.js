@@ -1,3 +1,5 @@
+// @flow
+
 // export clean configurations
 
 module.exports = {

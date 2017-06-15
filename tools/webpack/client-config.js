@@ -1,3 +1,4 @@
+// @flow
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -7,6 +8,7 @@ const CONFIG = require('./constants');
 // View the bundle-analyzer plugin by uncommenting the next line.
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+// $FlowFixMe
 module.exports = function bundle(type) {
   const bundleConfig = {
     context: CONFIG.context,
@@ -19,17 +21,17 @@ module.exports = function bundle(type) {
   };
 
   if (type === 'DEV') {
+    // $FlowFixMe
     bundleConfig.entry = [
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${CONFIG.port}`,
       'webpack/hot/only-dev-server',
       CONFIG.clientEntry
     ];
+    // $FlowFixMe
     bundleConfig.devtool = 'inline-source-map';
-    bundleConfig.plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-    );
+    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
+    // $FlowFixMe
     bundleConfig.devServer = {
       hot: true,
       contentBase: CONFIG.output,
@@ -38,8 +40,8 @@ module.exports = function bundle(type) {
       stats: 'errors-only'
     };
   } else {
+    // $FlowFixMe
     bundleConfig.entry = [CONFIG.clientEntry];
-    bundleConfig.
     bundleConfig.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
