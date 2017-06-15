@@ -13,6 +13,9 @@ const fs = require('fs');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 
+// $FlowFixMe
+const { ServerStyleSheet, StyleSheetManager } = require('styled-components');
+
 const commonConfig = require('../tools/webpack/common-config');
 const serverConfig = require('../tools/webpack/server-config');
 const App = require('./ServerApp.jsx').default;
@@ -42,19 +45,26 @@ server.use('/assets', express.static('./public/assets'));
 // $FlowFixMe
 server.use((req, res) => {
   const context = {};
-
+  // server rendering with styled-components
+  const sheet = new ServerStyleSheet();
   const body = ReactDOMServer.renderToString(
-    React.createElement(StaticRouter, { location: req.url, context }, React.createElement(App))
+    React.createElement(
+      StyleSheetManager,
+      { sheet: sheet.instance },
+      React.createElement(StaticRouter, { location: req.url, context }, React.createElement(App))
+    )
   );
 
   if (context.url) {
     res.redirect(301, context.url);
   }
 
-  res.write(template({ body }));
+  // add css styles to template
+  const css = sheet.getStyleTags(); // or sheet.getStyleElement()
+  res.write(template({ body, css }));
   res.end();
 });
 
 /* eslint-disable no-console */
-console.log(`listening on ${port}`);
+console.log(`Listening on: http://localhost:${port}`);
 server.listen(port);
