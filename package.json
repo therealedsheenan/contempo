@@ -47,7 +47,7 @@
     "recompose": "^0.23.4",
     "redux": "^3.6.0",
     "redux-observable": "^0.14.1",
-    "rxjs": "^6.0.0-alpha.0",
+    "rxjs": "5.4.0",
     "styled-components": "^2.0.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
@@ -117,7 +117,7 @@
   "scripts": {
     "client:dev": "webpack-dev-server --env=client:dev",
     "client:prod": "cross-env webpack --env=client:prod",
-    "server:dev": "NODE_ENV=development nodemon server/run.js",
+    "server:dev": "NODE_ENV=development node server/run.js",
     "server:prod": "cross-env webpack --env=server:prod",
     "serve": "cross-env NODE_ENV=production node server/run.js",
     "assets": "grunt",
@@ -125,7 +125,7 @@
     "jest": "NODE_ENV=test NODE_PATH=src/client jest",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "flow": "./node_modules/.bin/flow",
-    "format": "prettier --list-different --single-quote --print-width=120 webpack.config.js \"./src/**/*.{js,jsx}\" \"./client/**/*.{js,jsx}\" \"./server/**/*.{js,jsx}\"",
+    "format": "prettier --list-different --single-quote --print-width=120 \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\"",
     "test": "cross-env concurrently \"npm run jest\" \"npm run lint\" \"npm run format\""
   }
 }
