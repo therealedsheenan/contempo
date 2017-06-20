@@ -118,7 +118,7 @@
     "chai": "^3.5.0"
   },
   "scripts": {
-    "client:dev": "webpack-dev-server --env=client:dev",
+    "client:dev": "node ./tools/devServer.js",
     "client:prod": "cross-env webpack --env=client:prod",
     "server:dev": "NODE_ENV=development webpack-dashboard -- node server/run.js",
     "server:prod": "cross-env webpack --env=server:prod",
