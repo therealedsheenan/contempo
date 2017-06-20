@@ -110,7 +110,6 @@
     "style-loader": "^0.13.1",
     "webpack-bundle-analyzer": "^2.4.0",
     "webpack-config-utils": "^2.1.0",
-    "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.4.5"
   },
   "peerDependencies": {},
@@ -118,9 +117,9 @@
     "chai": "^3.5.0"
   },
   "scripts": {
-    "client:dev": "node ./tools/devServer.js",
+    "client:dev": "webpack-dev-server --env=client:dev",
     "client:prod": "cross-env webpack --env=client:prod",
-    "server:dev": "NODE_ENV=development webpack-dashboard -- node server/run.js",
+    "server:dev": "cross-env NODE_ENV=development node server/run.js",
     "server:prod": "cross-env webpack --env=server:prod",
     "serve": "cross-env NODE_ENV=production node server/run.js",
     "assets": "grunt",
