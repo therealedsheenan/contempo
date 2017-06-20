@@ -2,11 +2,8 @@
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server'); // eslint-disable-line
-// const Merge = require('webpack-merge');
 
 const CONFIG = require('./webpack/constants');
-// const clientConfig = require("./tools/webpack/client-config");
-// const commonConfig = require("./tools/webpack/common-config");
 
 const webpackConfig = require('../webpack.config');
 
