@@ -12,6 +12,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const fs = require('fs');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
+const DashboardPlugin = require('webpack-dashboard/plugin'); // eslint-disable-line
 
 // $FlowFixMe
 const { ServerStyleSheet, StyleSheetManager } = require('styled-components');
@@ -35,6 +36,7 @@ if (process.env.NODE_ENV === 'development') {
       publicPath: commonConfig.output.publicPath
     })
   );
+  compiler.apply(new DashboardPlugin());
 
   server.use(webpackHotMiddleware(compiler));
 }
