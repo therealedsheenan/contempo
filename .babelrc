@@ -17,7 +17,11 @@
     "transform-class-properties",
     "transform-decorators-legacy",
     "styled-components",
-    "dynamic-import-node"
+    "dynamic-import-node",
+    ["import-inspector", {
+      "serverSideRequirePath": true,
+      "webpackRequireWeakId": true
+    }]
   ],
   "env": {
     "development": {

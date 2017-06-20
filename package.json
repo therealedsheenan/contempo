@@ -39,6 +39,7 @@
     "react-addons-perf": "^15.4.2",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-loadable": "^4.0.2",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
@@ -50,7 +51,7 @@
     "rxjs": "5.4.0",
     "styled-components": "^2.0.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.6.1",
+    "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
@@ -61,6 +62,7 @@
     "babel-jest": "^17.0.2",
     "babel-loader": "^7.0.0",
     "babel-plugin-dynamic-import-node": "^1.0.2",
+    "babel-plugin-import-inspector": "^2.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-polyfill": "^6.20.0",
@@ -108,6 +110,7 @@
     "style-loader": "^0.13.1",
     "webpack-bundle-analyzer": "^2.4.0",
     "webpack-config-utils": "^2.1.0",
+    "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.4.5"
   },
   "peerDependencies": {},
@@ -115,9 +118,9 @@
     "chai": "^3.5.0"
   },
   "scripts": {
-    "client:dev": "webpack-dev-server --env=client:dev",
+    "client:dev": "node ./tools/devServer.js",
     "client:prod": "cross-env webpack --env=client:prod",
-    "server:dev": "NODE_ENV=development node server/run.js",
+    "server:dev": "NODE_ENV=development webpack-dashboard -- node server/run.js",
     "server:prod": "cross-env webpack --env=server:prod",
     "serve": "cross-env NODE_ENV=production node server/run.js",
     "assets": "grunt",

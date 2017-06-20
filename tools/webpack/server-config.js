@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const OfflinePlugin = require('offline-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin'); // eslint-disable-line
 
 const CONFIG = require('./constants');
 
@@ -19,8 +20,12 @@ module.exports = function bundle(type) {
   if (type === 'DEV') {
     bundleConfig.entry = ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', CONFIG.serverEntry];
     // $FlowFixMe
-    bundleConfig.devtool = 'cheap-eval-source-map';
-    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
+    bundleConfig.devtool = 'cheap-module-eval-source-map';
+    bundleConfig.plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(),
+      new DashboardPlugin({ port: CONFIG.port })
+    );
     // bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
     bundleConfig.entry = [CONFIG.serverEntry];

@@ -3,7 +3,10 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
-import 'rxjs';
+// the only needed rx files for redux-observables
+import 'rxjs/Observable';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/toPromise';
 
 // redux settings
 import greetingReducer from '../redux/greeting/reducer';
