@@ -19,7 +19,7 @@ const server = new WebpackDevServer(compiler, {
   port: CONFIG.port,
   hot: true,
   quiet: true, // lets WebpackDashboard do its thing
-  historyApiFallback: true,
+  historyApiFallback: true
 });
 
 server.listen(CONFIG.port);
