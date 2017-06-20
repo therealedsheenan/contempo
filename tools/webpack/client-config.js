@@ -3,6 +3,9 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const Dashboard = require('webpack-dashboard'); // eslint-disable-line
+const DashboardPlugin = require('webpack-dashboard/plugin'); // eslint-disable-line
+
 const CONFIG = require('./constants');
 
 // View the bundle-analyzer plugin by uncommenting the next line.
@@ -21,6 +24,7 @@ module.exports = function bundle(type) {
   };
 
   if (type === 'DEV') {
+    const dashboard = new Dashboard();
     // $FlowFixMe
     bundleConfig.entry = [
       'react-hot-loader/patch',
@@ -30,15 +34,11 @@ module.exports = function bundle(type) {
     ];
     // $FlowFixMe
     bundleConfig.devtool = 'inline-source-map';
-    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
-    // $FlowFixMe
-    bundleConfig.devServer = {
-      hot: true,
-      contentBase: CONFIG.output,
-      port: CONFIG.port,
-      historyApiFallback: true,
-      stats: 'errors-only'
-    };
+    bundleConfig.plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(),
+      new DashboardPlugin(dashboard.setData)
+    );
   } else {
     // $FlowFixMe
     bundleConfig.entry = [CONFIG.clientEntry];
