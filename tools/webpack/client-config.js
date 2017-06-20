@@ -31,10 +31,7 @@ module.exports = function bundle(type) {
     ];
     // $FlowFixMe
     bundleConfig.devtool = 'inline-source-map';
-    bundleConfig.plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-    );
+    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
   } else {
     // $FlowFixMe
     bundleConfig.entry = [CONFIG.clientEntry];

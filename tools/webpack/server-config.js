@@ -20,10 +20,7 @@ module.exports = function bundle(type) {
     bundleConfig.entry = ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', CONFIG.serverEntry];
     // $FlowFixMe
     bundleConfig.devtool = 'cheap-module-eval-source-map';
-    bundleConfig.plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-    );
+    bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
     // bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
     bundleConfig.entry = [CONFIG.serverEntry];
