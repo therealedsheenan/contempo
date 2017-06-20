@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const OfflinePlugin = require('offline-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin'); // eslint-disable-line
 
 const CONFIG = require('./constants');
 
@@ -23,8 +22,7 @@ module.exports = function bundle(type) {
     bundleConfig.devtool = 'cheap-module-eval-source-map';
     bundleConfig.plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin(),
-      new DashboardPlugin({ port: CONFIG.port })
+      new webpack.NamedModulesPlugin()
     );
     // bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
