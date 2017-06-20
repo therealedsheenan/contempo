@@ -60,6 +60,7 @@ module.exports = {
     new ProgressBarPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('styles.[name].css'),
-    new InlineManifestWebpackPlugin()
+    new InlineManifestWebpackPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 };
