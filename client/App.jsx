@@ -8,9 +8,8 @@ import { Provider } from 'react-redux';
 import routes from '../src/config/routes';
 import store from '../src/config/store';
 
-const App = () => (
+const App = () =>
   <Provider store={store}>
     {routes()}
-  </Provider>
-);
+  </Provider>;
 export default App;
