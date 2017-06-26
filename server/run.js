@@ -36,7 +36,13 @@ if (process.env.NODE_ENV === 'development') {
     })
   );
 
-  server.use(webpackHotMiddleware(compiler));
+  server.use(
+    webpackHotMiddleware(compiler, {
+      // removing node v8.0.0 error
+      log: () => {},
+      heartbeat: 2000
+    })
+  );
 }
 
 server.use('/', express.static('./public'));
