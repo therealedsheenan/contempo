@@ -30,6 +30,14 @@ module.exports = function bundle(type) {
       CONFIG.clientEntry
     ];
     // $FlowFixMe
+    bundleConfig.devServer = {
+      hot: true,
+      contentBase: CONFIG.output,
+      port: CONFIG.port,
+      historyApiFallback: true,
+      stats: 'errors-only'
+    };
+    // $FlowFixMe
     bundleConfig.devtool = 'inline-source-map';
     bundleConfig.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin());
   } else {
