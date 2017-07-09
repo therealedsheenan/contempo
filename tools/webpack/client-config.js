@@ -52,8 +52,7 @@ module.exports = function bundle(type) {
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
-        },
-        sourceMap: true
+        }
       }),
       new OfflinePlugin({
         relativePaths: false,
