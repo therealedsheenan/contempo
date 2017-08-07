@@ -24,8 +24,6 @@ module.exports = function bundle(type) {
     // bundleConfig.devServer = { hot: true, publicPath: '/public/', historyApiFallback: true }
   } else {
     bundleConfig.entry = [CONFIG.serverEntry];
-    // $FlowFixMe
-    bundleConfig.devtool = 'cheap-source-map';
     bundleConfig.plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true
@@ -38,8 +36,7 @@ module.exports = function bundle(type) {
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
-        },
-        sourceMap: true
+        }
       }),
       new OfflinePlugin({
         relativePaths: false,
