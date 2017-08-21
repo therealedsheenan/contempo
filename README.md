@@ -13,6 +13,9 @@ Here are the following commands to install the environment.
 
 #### Client-side rendering
 
+#### Using Grunt Assets
+`npm run assets`  - Runs the task that handles the assets
+
 `npm run client:dev` - Runs client-side rendering development environment.
 
 `npm run client:prod` - Runs client-side rendering production.
@@ -25,11 +28,7 @@ Here are the following commands to install the environment.
 
 `npm run server` - Runs the node server.
 
-#### Using Grunt Assets
-`npm run assets`  - Runs the task that handles the assets
-
-
-Access: `http://localhost:8000`
+Access: `http://localhost:4200`
 
 `npm test` - Runs the jest testing.
 `npm run eslint` - Runs the eslint.
@@ -47,92 +46,20 @@ Access: `http://localhost:8000`
 `npm test` - Runs the test suite
 
 #### Asynchronous routes / components
-Asynchronously load routes or components by using the async component:
-
-```
-import Async from '../components/Async/AsyncComponent';
-
-<Route exact path="/" component={Async(System.import('PATH_TO_COMPONENT'))} />
-```
-
-Apply lazy loading by editing the AsyncComponent's LoadingComponent method.
-
-#### Under the hood:
- - Before running the various builds, npm scripts runs the prebuild `rimraf` command
-that cleans up the public directory. This public directory servers as the output of all the builds.
-
-- After running the build, npm scripts also copies assets to public directory.
-- This adapts most of the functionalities from the [React-scripts](https://github.com/facebookincubator/create-react-app)
+Asynchronously load routes or components by using the async component.
+Checkout react-loadable here: https://github.com/thejameskyle/react-loadable
 
 ### References
 - [React-starter](https://github.com/kriasoft/react-starter-kit)
 - [Frontend masters](https://frontendmasters.com/)
 - [React-scripts](https://github.com/facebookincubator/create-react-app)
 
-### Feature Trade-offs
-Using hot-reloading, code-splitting and server-rendering with react-route v4 seems very cumbersome to implement.
-Instead, this repo implements hot-realoading + code-splitting for the meantime.
-
-If you want to use the server rendering feature, you can use `src/client/config/server.jsx`.
-This route file is simplified so that you can server-render your app using simple routes.
-On the other hand, the `src/client/config/split.jsx` route file is configured to best render the app using the code-splitting + 
-hot-reloading feature.
-
-
-### Code Splitting and Lazy-loading methods
-There are methods in implementing asynchronous routes, lazy loading components and bundle loading.
-
-1.) Asynchronous Component
-
-Component Directory:  `src/components/AsyncComponent`
-
-```
-  import { asyncComponent } from 'react-async-component';
-  import { Route } from 'react-router-dom';
-  
-  import 'PATH_TO_COMPONENT.js'
-  
-  <Route path="/" component={asyncComponent(Syste.import('PATH_TO_COMPONENT.js'))} />
-```
-Note that you have to separately import the component to be asynchronously loaded.
-
-2.) Asynchronous routes
-Component Directory:  `src/components/AsyncComponent`
-
-```
-  import { asyncComponent } from 'react-async-component';
-  import { Route } from 'react-router-dom';
-
-  <Route
-    exact
-    path="/"
-    component={
-      props => <AsyncRoute props={props} loadingPromise={System.import('../../containers/Home/HomeContainer')} />
-    }
-  />
-```
-
-3.) Bundle loader - The same as async routes but this uses the bundle-loader plugin.
-Component Directory:  `src/components/BundleLoader/BundleLoader`
-
-```
-  import { Route } from 'react-router-dom';
-  import MyComponent from 'PATH_TO_MY_COMPONENT.js';
-  
-  <Route
-    exact
-    path="/style"
-    component={
-      props => <Bundle {...props} component={MyComponent} />
-    }
-  />
-```
-
 ## Coding Guideline:
 
 ### Main source Directory :`./src/`
 
 Here are the descriptions of each folders:
+
 
 `assets` - directory for media files.
 
@@ -157,3 +84,12 @@ since you can basically add an inline `styled-component` code from here.
 This directory is different from the components directory's `styles.js`. `styles.js` from the components
 directory are only specific to the react-presentational styles of the current directory.
 
+### Additional important directories:
+
+`client` - customizable configurations for the client-side rendering.
+
+`server` - customizable configurations for the server-side rendering.
+
+`tools` - customizable development configurations(webpack). You can add additional dev tools from here.
+
+`public` - rendered directory.
