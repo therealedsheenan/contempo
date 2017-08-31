@@ -1,0 +1,9 @@
+{
+  "*.{js,jsx}": [
+    "format",
+    "lint",
+    "flow",
+    "test:coverage",
+    "test"
+  ]
+}
