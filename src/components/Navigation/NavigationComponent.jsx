@@ -5,9 +5,10 @@ import { pure } from 'recompose';
 
 import { StyledLink, Navigation } from './styles';
 
-const NavigationComponent = () =>
+const NavigationComponent = () => (
   <Navigation>
     <StyledLink to="/">Home</StyledLink> | <StyledLink to="/style">Styleguide</StyledLink>
-  </Navigation>;
+  </Navigation>
+);
 
 export default pure(NavigationComponent);

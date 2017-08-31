@@ -99,7 +99,7 @@
     "jest": "^20.0.4",
     "jsdom": "^9.5.0",
     "nock": "^9.0.13",
-    "prettier": "^1.2.2",
+    "prettier": "^1.6.1",
     "prettier-eslint": "^5.1.0",
     "prettier-eslint-cli": "^3.4.1",
     "react-addons-test-utils": "^15.4.1",
@@ -130,6 +130,6 @@
     "test:debug": "node --debug-brk ./node_modules/.bin/jest --runInBand",
     "lint": "eslint ./src/**/*.{js,jsx} ./server/** ./client/** ./tools/**  --quiet",
     "flow": "flow",
-    "format": "prettier --list-different --single-quote --print-width=120 \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\""
+    "format": "prettier --config ./.prettierrc -l \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\""
   }
 }
