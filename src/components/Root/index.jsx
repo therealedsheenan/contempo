@@ -12,7 +12,7 @@ import '../../styles/base';
 
 const Root = (props: { children: Object }) => (
   <ThemeProvider theme={theme}>
-    <main>{props.children}      </main>
+    <main>{props.children}</main>
   </ThemeProvider>
 );
 
