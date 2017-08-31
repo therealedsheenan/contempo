@@ -37,11 +37,9 @@ const getGreetingSuccess = (payload: Object) => {
 };
 
 export const greetingEpic = (action$: Object) =>
-  action$
-    .ofType(type.GET_GREETING)
-    .mergeMap(() =>
-      axios
-        .get(`${API_URL}/assets/data/greeting.json`)
-        .then(res => getGreetingSuccess(res))
-        .catch(error => getGreetingError(error))
-    );
+  action$.ofType(type.GET_GREETING).mergeMap(() =>
+    axios
+      .get(`${API_URL}/assets/data/greeting.json`)
+      .then(res => getGreetingSuccess(res))
+      .catch(error => getGreetingError(error))
+  );
