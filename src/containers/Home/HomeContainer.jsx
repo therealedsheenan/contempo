@@ -16,7 +16,7 @@ class HomeContainer extends React.Component {
   };
 
   render() {
-    return <GreetingComponent     message={this.props.greeting.content} />;
+    return <GreetingComponent message={this.props.greeting.content} />;
   }
 }
 
