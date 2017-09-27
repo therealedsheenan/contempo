@@ -4,7 +4,7 @@ import React from 'react';
 
 const StyleguideContainer = () => (
   <div className="Styleguide">
-    <p>this is the styleguide</p>
+    <p style={{ textAlign: 'center' }}>this is the style guide!</p>
   </div>
 );
 

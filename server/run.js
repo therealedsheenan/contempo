@@ -13,7 +13,6 @@ const fs = require('fs');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 
-// $FlowFixMe
 const { ServerStyleSheet, StyleSheetManager } = require('styled-components');
 
 const commonConfig = require('../tools/webpack/common-config');
@@ -23,7 +22,6 @@ const CONFIG = require('../tools/webpack/constants');
 
 const port = CONFIG.port;
 const baseTemplate = fs.readFileSync('./server/markup/index.html');
-// $FlowFixMe
 const template = _.template(baseTemplate);
 
 const server = express();
@@ -48,7 +46,6 @@ if (process.env.NODE_ENV === 'development') {
 server.use('/', express.static('./public'));
 server.use('/assets', express.static('./public/assets'));
 
-// $FlowFixMe
 server.use((req, res) => {
   const context = {};
   // server rendering with styled-components

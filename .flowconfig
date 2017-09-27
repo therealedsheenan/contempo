@@ -2,6 +2,7 @@
 <PROJECT_ROOT>/node_modules/styled-components/*
 <PROJECT_ROOT>/node_modules/nock/*
 <PROJECT_ROOT>/flow-typed/npm/*
+<PROJECT_ROOT>/server/run.js
 
 [include]
 

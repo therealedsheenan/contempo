@@ -4,8 +4,14 @@ exports[`Home existence 1`] = `
 <div
   className="Styleguide"
 >
-  <p>
-    this is the styleguide
+  <p
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    this is the style guide!
   </p>
 </div>
 `;

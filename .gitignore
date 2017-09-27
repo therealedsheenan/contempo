@@ -7,3 +7,4 @@ public/*
 npm-debug.log.*
 .idea/*
 flow-typed/npm/**/*
+coverage/*
