@@ -1,11 +1,36 @@
 // @flow
 
 import React from 'react';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
-const StyleguideContainer = () => (
-  <div className="Styleguide">
-    <p style={{ textAlign: 'center' }}>this is the style guide!</p>
-  </div>
-);
+export default class StyleguideContainer extends React.Component {
+  state = {
+    status: 'close'
+  };
 
-export default StyleguideContainer;
+  openModal = () => {
+    this.setState({
+      status: 'open'
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      status: 'close'
+    });
+  };
+
+  render() {
+    return (
+      <div className="Styleguide" style={{ backgroundColor: 'red', width: '100%', height: '100vh' }}>
+        <p style={{ textAlign: 'center' }}>this is the style guide!</p>
+        <button onClick={this.openModal}>Open</button>
+        <div className={`overlay overlay-door ${this.state.status}`}>
+          <div className="content">
+            <button onClick={this.closeModal}>X</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}

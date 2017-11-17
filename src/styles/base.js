@@ -494,4 +494,68 @@ injectGlobal`
     font-family: 'Helvetica';
     src: url('public/assets/fonts/HelveticaNeue.ttf')  format('truetype');
   }
+
+  .fade-enter {
+    opacity: 0;
+    transform: translate(0,100px);
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: all 300ms ease-in;
+  }
+  
+  .fade-exit {
+    transform: translate(0,0);
+    opacity: 0;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 1;
+    transform: translate(0,100px);
+    transition: all 100ms ease-out;
+  }
+
+  .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(153,204,51,0.9);
+  }
+  
+  .overlay .overlay-close {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+    background: url(../img/cross.png) no-repeat center center;
+    text-indent: 200%;
+    color: transparent;
+    outline: none;
+    z-index: 100;
+  }
+  
+  .overlay-door {
+    visibility: hidden;
+    width: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: width 0.5s 0.3s, visibility 0s 0.8s;
+    transition: width 0.5s 0.1s, visibility 0s 0.8s;
+  }
+  
+  .overlay-door.open {
+    visibility: visible;
+    width: 100%;
+    -webkit-transition: width 0.5s;
+    transition: width 0.5s;
+  }
+
 `;
