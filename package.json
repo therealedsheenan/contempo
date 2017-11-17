@@ -124,7 +124,6 @@
     "chai": "^3.5.0"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "client:dev": "webpack-dev-server --env=client:dev",
     "client:prod": "cross-env webpack --env=client:prod",
     "server:dev": "cross-env NODE_ENV=development node server/run.js",
