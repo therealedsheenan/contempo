@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import CSSTransition from 'react-transition-group/CSSTransition';
 
 export default class StyleguideContainer extends React.Component {
   state = {
