@@ -137,6 +137,8 @@
     "lint": "eslint ./src/**/*.{js,jsx} ./server/** ./client/** ./tools/**  --quiet",
     "flow": "flow",
     "format": "prettier --config ./.prettierrc -l \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\"",
-    "deploy": "surge"
+    "deploy": "surge",
+    "deploy:client": "",
+    "deploy:server": ""
   }
 }
