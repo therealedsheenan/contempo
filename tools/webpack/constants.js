@@ -8,5 +8,7 @@ module.exports = {
   port: 8000,
   context: resolve(__dirname, '../../'),
   clientEntry: resolve('./client/index.jsx'),
-  serverEntry: resolve('./server/index.jsx')
+  serverEntry: resolve('./server/index.jsx'),
+  clientPublicPath: resolve(__dirname, '../../public/'),
+  serverPublicPath: '/public/'
 };
