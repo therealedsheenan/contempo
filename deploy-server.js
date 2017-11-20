@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // static files
-server.use('/public', express.static(path.join(__dirname, 'public')));
+server.use('/', express.static(path.join(__dirname, 'public')));
 
 // $FlowFixMe
 server.use((req, res) => {
