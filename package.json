@@ -138,7 +138,7 @@
     "flow": "flow",
     "format": "prettier --config ./.prettierrc -l \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\"",
     "deploy": "surge",
-    "deploy:client": "",
-    "deploy:server": ""
+    "deploy:client": "npm run client:prod && node deploy-client.js",
+    "deploy:server": "npm run server:prod && node deploy-server.js"
   }
 }
