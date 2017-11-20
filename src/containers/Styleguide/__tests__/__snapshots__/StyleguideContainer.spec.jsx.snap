@@ -3,6 +3,13 @@
 exports[`Home existence 1`] = `
 <div
   className="Styleguide"
+  style={
+    Object {
+      "backgroundColor": "red",
+      "height": "100vh",
+      "width": "100%",
+    }
+  }
 >
   <p
     style={
@@ -13,5 +20,23 @@ exports[`Home existence 1`] = `
   >
     this is the style guide!
   </p>
+  <button
+    onClick={[Function]}
+  >
+    Open
+  </button>
+  <div
+    className="overlay overlay-door close"
+  >
+    <div
+      className="content"
+    >
+      <button
+        onClick={[Function]}
+      >
+        X
+      </button>
+    </div>
+  </div>
 </div>
 `;
