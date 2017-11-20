@@ -43,7 +43,7 @@ const routes = () => (
         <TransitionGroup>
           <CSSTransition key={props.location.pathname} classNames="fade" timeout={1000} mountOnEnter unmountOnExit>
             <section className="fix-container">
-              <Switch location={location}>
+              <Switch location={props.location}>
                 <Route exact path="/style" component={AsyncStyleGuide} />
                 <Route exact path="/" component={AsyncHome} />
               </Switch>
