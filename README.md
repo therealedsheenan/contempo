@@ -84,6 +84,21 @@ since you can basically add an inline `styled-component` code from here.
 This directory is different from the components directory's `styles.js`. `styles.js` from the components
 directory are only specific to the react-presentational styles of the current directory.
 
+### Deployment
+You have to bundle all the scripts in production mode.
+If you want client-side production bundle and deployment:
+
+```
+$ npm run deploy:client # yarn deploy:client
+```
+
+If you want server-side production bundle and deployment:
+
+```
+$ npm run deploy:prod # yarn deploy:client
+```
+
+
 ### Additional important directories:
 
 `client` - customizable configurations for the client-side rendering.
