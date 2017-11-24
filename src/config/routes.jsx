@@ -3,7 +3,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // react containers
 import Root from '../components/Root/index';
@@ -21,8 +20,8 @@ const LoadingComponent = (props: { isLoading: boolean, timedOut: boolean, error:
   return null;
 };
 
-const AsyncStyleGuide = Loadable({
-  loader: () => import('../containers/Styleguide/StyleguideContainer'),
+const AsyncSomePage = Loadable({
+  loader: () => import('../containers/SomePage/SomePage'),
   loading: props => <LoadingComponent {...props} />
 });
 
@@ -31,8 +30,6 @@ const AsyncHome = Loadable({
   loading: props => <LoadingComponent {...props} />
 });
 
-// import HomeContainer from '../containers/Home/HomeContainer';
-// import StyleguideContainer from '../containers/Styleguide/StyleguideContainer';
 
 /* eslint-disable */
 const routes = () => (
@@ -40,16 +37,12 @@ const routes = () => (
     render={props => (
       <Root>
         <Navigation />
-        <TransitionGroup>
-          <CSSTransition key={props.location.pathname} classNames="fade" timeout={1000} mountOnEnter unmountOnExit>
-            <section className="fix-container">
-              <Switch location={props.location}>
-                <Route exact path="/style" component={AsyncStyleGuide} />
-                <Route exact path="/" component={AsyncHome} />
-              </Switch>
-            </section>
-          </CSSTransition>
-        </TransitionGroup>
+        <section className="fix-container">
+          <Switch location={props.location}>
+            <Route exact path="/style" component={AsyncSomePage} />
+            <Route exact path="/" component={AsyncHome} />
+          </Switch>
+        </section>
       </Root>
     )}
   />
