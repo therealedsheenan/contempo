@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home existence 1`] = `
+<div
+  className="Styleguide"
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100vh",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <p
+    style={
+      Object {
+        "margin": "0",
+        "textAlign": "center",
+      }
+    }
+  >
+    This is another page.
+  </p>
+</div>
+`;

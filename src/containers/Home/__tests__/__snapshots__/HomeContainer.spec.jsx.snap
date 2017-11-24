@@ -2,19 +2,8 @@
 
 exports[`Home existence 1`] = `
 <div
-  className="styles__Wrapper-dhcWqx cQtooR"
+  className="styles__Wrapper-dhcWqx kCYNEK"
 >
-  <h1
-    className="styles__Title-kJmJYc kAsCYU"
-  >
-    Good 
-    Day!
-  </h1>
-  <p
-    className="styles__SubTitle-geuJrq dzWtlk"
-  >
-    Welcome to
-  </p>
   <div>
     <img
       alt=""

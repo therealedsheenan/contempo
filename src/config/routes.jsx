@@ -30,7 +30,6 @@ const AsyncHome = Loadable({
   loading: props => <LoadingComponent {...props} />
 });
 
-
 /* eslint-disable */
 const routes = () => (
   <Route

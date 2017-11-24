@@ -132,7 +132,7 @@
     "assets": "grunt",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:update": "NODE_ENV=test NODE_PATH=src jest --updateSnapshot",
+    "test:update": "jest --updateSnapshot",
     "test:debug": "node --debug-brk ./node_modules/.bin/jest --runInBand",
     "lint": "eslint ./src/**/*.{js,jsx} ./server/** ./client/** ./tools/**  --quiet",
     "flow": "flow",
