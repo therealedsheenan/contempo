@@ -4,6 +4,11 @@
 Starter development environment for React.
 This repository is a starter development environment for creating apps(specifically for React) using webpack.
 
+## Client Rendering Demo
+[http://contempo.surge.sh/](http://contempo.surge.sh/)
+
+- For server-side rendering, clone this repo and run `npm run deploy:server`
+
 ## Installation
 This has a client and server environment.
 Here are the following commands to install the environment.
@@ -108,3 +113,5 @@ $ npm run deploy:prod # yarn deploy:client
 `tools` - customizable development configurations(webpack). You can add additional dev tools from here.
 
 `public` - rendered directory.
+
+
