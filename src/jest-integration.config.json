@@ -1,0 +1,24 @@
+{
+  "bail": true,
+  "verbose": true,
+  "testRegex": "(containers/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
+  "testEnvironment": "jest-environment-jsdom",
+  "coverageDirectory": "../coverage",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "__mocks__",
+    "helpers",
+    "components",
+    "redux",
+    "style",
+    "styles"
+  ],
+  "collectCoverageFrom": ["containers/**/*.{js|jsx}"],
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ],
+  "setupFiles": ["./test-setup.js"],
+  "moduleNameMapper": {
+    "\\.(css|scss)$": "identity-obj-proxy"
+  }
+}
