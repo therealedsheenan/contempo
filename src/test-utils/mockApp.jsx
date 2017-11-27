@@ -1,4 +1,3 @@
-
 // @flow
 
 import React from 'react';
@@ -21,4 +20,4 @@ export default () => {
     </Provider>
   );
   return { history, store, wrapper };
-}
+};
