@@ -16,7 +16,7 @@
   ],
   "coveragePathIgnorePatterns": [
     "root.js",
-    "selector.js",
+    "selector.js"
   ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
