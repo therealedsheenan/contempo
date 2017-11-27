@@ -138,8 +138,13 @@
     "lint": "eslint ./src/**/*.{js,jsx} ./server/** ./client/** ./tools/**  --quiet",
     "flow": "flow",
     "format": "prettier --config ./.prettierrc -l \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\"",
+    "format:write": "prettier --config .prettierrc --write \"./src/**/**/*.{js,jsx}\" \"./server/*.{js,jsx}\" \"./client/*.{js,jsx}\" \"./tools/**/*.js\"",
     "deploy": "surge",
     "deploy:client": "npm run client:prod && node deploy-client.js",
-    "deploy:server": "npm run server:prod && node deploy-server.js"
+    "deploy:server": "npm run server:prod && node deploy-server.js",
+    "jest:unit": "jest --coverage --config=src/jest-unit.config.json",
+    "jest:integration": "jest --coverage --config=src/jest-integration.config.json",
+    "jest:unit:watch": "jest --watch --config=src/jest-unit.config.json",
+    "jest:integration:watch": "jest --config=src/jest-integration.config.json --watch"
   }
 }
