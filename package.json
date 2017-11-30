@@ -131,9 +131,6 @@
     "server:prod": "cross-env webpack --env=server:prod",
     "serve": "cross-env NODE_ENV=production node server/run.js",
     "assets": "grunt",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:update": "jest --updateSnapshot",
     "test:debug": "node --debug-brk ./node_modules/.bin/jest --runInBand",
     "lint": "eslint ./src/**/*.{js,jsx} ./server/** ./client/** ./tools/**  --quiet",
     "flow": "flow",
@@ -143,8 +140,10 @@
     "deploy:client": "npm run client:prod && node deploy-client.js",
     "deploy:server": "npm run server:prod && node deploy-server.js",
     "jest:unit": "jest --coverage --config=src/jest-unit.config.json",
-    "jest:integration": "jest --coverage --config=src/jest-integration.config.json",
     "jest:unit:watch": "jest --watch --config=src/jest-unit.config.json",
-    "jest:integration:watch": "jest --config=src/jest-integration.config.json --watch"
+    "jest:unit:coverage": "jest --coverage --config=src/jest-unit.config.json",
+    "jest:integration": "jest --coverage --config=src/jest-integration.config.json",
+    "jest:integration:watch": "jest --watch --config=src/jest-integration.config.json",
+    "jest:integration:coverage": "jest --coverage --config=src/jest-integration.config.json "
   }
 }
