@@ -8,7 +8,8 @@ cache:
 before_script:
   - "yarn"
 script:
-  - "yarn test"
+  - "yarn jest:unit"
+  - "yarn jest:integration"
   - "yarn format"
   - "yarn lint"
 
