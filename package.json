@@ -86,6 +86,7 @@
     "detect-port": "^1.0.5",
     "dotenv": "^2.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
+    "enzyme-to-json": "^3.2.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.1.1",
