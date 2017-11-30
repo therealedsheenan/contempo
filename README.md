@@ -54,6 +54,28 @@ Access: `http://localhost:4200`
 Asynchronously load routes or components by using the async component.
 Checkout react-loadable here: https://github.com/thejameskyle/react-loadable
 
+## Testing
+There are two types of tests, integration and unit tests.
+
+Checkout the `src/jest-integration.config.json` and `jest-unit.config.json` files to see the configurations.
+
+
+#### Integration tests
+
+`npm run jest:integration` - run integration test.
+
+`npm run jest:integration:watch` - run integration test in watch mode.
+
+`npm run jest:integration:coverage` - run integration test in watch mode.
+
+#### Unit tests
+
+`npm run jest:unit` - run unit test.
+
+`npm run jest:unit:watch` - run unit test in watch mode.
+
+`npm run jest:unit:coverage` - run unit test in watch mode.
+
 ### References
 - [React-starter](https://github.com/kriasoft/react-starter-kit)
 - [Frontend masters](https://frontendmasters.com/)
